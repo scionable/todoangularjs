@@ -1,0 +1,13 @@
+<a ui-sref="home" class="logo">Logo</a>
+
+<a
+		class="menu__link"
+		ng-repeat="menuLink in $ctrl.menuLinks"
+		ui-sref="{{menuLink.sref}}"
+		ui-sref-active="active"
+>{{menuLink.text}}</a>
+
+<div class="create-user">
+	<div class="user-foto"></div>
+	<a ui-sref="registration" class="test">Create User</a>
+</div>

@@ -2,13 +2,21 @@
 	angular.module('todoApp', ['ui.router']).config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/");
 		$stateProvider
-			.state('main', {
+			.state('home', {
 				url: '/',
 				templateUrl: 'templates/index.html'
 			})
-			.state('schedule', {
-				url: '/schedule',
-				template: '<h3>schedule!</h3>'
+			.state('contacts', {
+				url: '/contacts',
+				template: '<h3>contacts!</h3>'
+			})
+			.state('task-list', {
+				url: '/task-list',
+				template: '<h3>task-list!</h3>'
+			})
+			.state('registration', {
+				url: '/registration',
+				component: 'registration'
 			})
 	}]);
 })();

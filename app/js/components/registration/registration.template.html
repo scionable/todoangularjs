@@ -1,0 +1,11 @@
+<div class="registration-form">
+	<form name="registrationForm"  action="">
+		<input name="email" required ng-model="user.mail" placeholder="email" type="email">
+		<input required ng-model="user.firstName" placeholder="firstname" type="text">
+		<input required ng-model="user.lastName" placeholder="lastname" type="text">
+		<input required ng-model="user.password" placeholder="passsword" type="password">
+		<input required ng-model="user.passwordConfirm" placeholder="passsword" type="password">
+		<span class="error" ng-show="registrationForm.$invalid">Required!</span>
+		<button type="submit">Save</button>
+	</form>
+</div>
