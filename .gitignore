@@ -1,3 +1,4 @@
+.idea
 logs/*
 !.gitkeep
 node_modules/
