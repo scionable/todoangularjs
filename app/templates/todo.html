@@ -2,13 +2,13 @@
     <div>
         <input type="text" ng-model="name">
         <input type="text" ng-model="log">
-        <button ng-click="addObjUser(name,log)">Add</button>
+        <button ng-click="$ctrl.addObjUser(name,log)">Add</button>
     </div>
-    <!-- 
-    <ul ng-repeat=" (user,index) in users">
+
+    <ul ng-repeat=" (user,index) in $ctrl.users">
         <li>
             <span>{{index}}</span>
             {{user.name}}
         </li>
-    </ul> -->
+    </ul>
 </div>
