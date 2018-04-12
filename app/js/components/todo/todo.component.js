@@ -1,10 +1,10 @@
 (function () {
 	angular.module('todoApp').component('todo', {
 		templateUrl: '/js/components/todo/todo.html',
-		controller: ('AddUserController', ['userService', '$scope', AddUserController])
+		controller: ('AddUserController', ['userService', AddUserController])
 	});
 
-	function AddUserController(userService, $scope) {
+	function AddUserController(userService) {
 		var $ctrl = this;
 		$ctrl.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 		$ctrl.activeTab = 'Monday';
@@ -42,7 +42,7 @@
 					return task.day === 'Sunday';
 				};
 			}()
-		};
+		}
 
 
 		function getAllTasks() {

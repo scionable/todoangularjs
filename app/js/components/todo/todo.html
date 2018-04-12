@@ -18,8 +18,8 @@
 			</p>
 		</div>
 		<div class="col s4">
-			<input type="text" ng-model="task.text">
-			<button ng-click="$ctrl.addNewTask(task.text)" class="btn">Add</button>
+			<input type="text" ng-model="$ctrl.task.text">
+			<button ng-click="$ctrl.addNewTask($ctrl.task.text)" class="btn">Add</button>
 		</div>
 	</div>
 
