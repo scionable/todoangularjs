@@ -1,130 +1,81 @@
 {
-  "WeekDays": {
-    "Monday": [
-      {
-        "todo": "Fri Show 1",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 2",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 3",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 4",
-        "finish": "false"
-      }
-    ],
-    "Tuesday": [
-      {
-        "todo": "Fri Show 1",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 2",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 3",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 4",
-        "finish": "false"
-      }
-    ],
-    "Wednesday": [
-      {
-        "todo": "Fri Show 1",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 2",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 3",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 4",
-        "finish": "false"
-      }
-    ],
-    "Thursday": [
-      {
-        "todo": "Fri Show 1",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 2",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 3",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 4",
-        "finish": "false"
-      }
-    ],
-    "Friday": [
-      {
-        "todo": "Fri Show 1",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 2",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 3",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 4",
-        "finish": "false"
-      }
-    ],
-    "Saturday": [
-      {
-        "todo": "Fri Show 1",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 2",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 3",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 4",
-        "finish": "false"
-      }
-    ],
-    "Sunday": [
-      {
-        "todo": "Fri Show 1",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 2",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 3",
-        "finish": "false"
-      },
-      {
-        "todo": "Fri Show 4",
-        "finish": "false"
-      }
-    ]
-  }
+  "WeekDays": [
+    {
+      "day": "Monday",
+      "todo": [
+        {
+          "do": "Fri Show 1",
+          "done": "false"
+        },
+        { "do": "Fri Show 1", "done": "false" },
+        { "do": "Fri Show 1", "done": "false" }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "todo": [
+        {
+          "do": "Fri Show 2",
+          "done": "false"
+        },
+        { "do": "Fri Show 2", "done": "false" },
+        { "do": "Fri Show 2", "done": "false" }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "todo": [
+        {
+          "do": "Fri Show 3",
+          "done": "false"
+        },
+        { "do": "Fri Show 3", "done": "false" },
+        { "do": "Fri Show 3", "done": "false" }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "todo": [
+        {
+          "do": "Fri Show 4",
+          "done": "false"
+        },
+        { "do": "Fri Show 4", "done": "false" },
+        { "do": "Fri Show 4", "done": "false" }
+      ]
+    },
+    {
+      "day": "Friday",
+      "todo": [
+        {
+          "do": "Fri Show 5",
+          "done": "false"
+        },
+        { "do": "Fri Show 5", "done": "false" },
+        { "do": "Fri Show 5", "done": "false" }
+      ]
+    },
+    {
+      "day": "Saturday",
+      "todo": [
+        {
+          "do": "Fri Show 6",
+          "done": "false"
+        },
+        { "do": "Fri Show 6", "done": "false" },
+        { "do": "Fri Show 6", "done": "false" }
+      ]
+    },
+    {
+      "day": "Sunday",
+      "todo": [
+        {
+          "do": "Fri Show 7",
+          "done": "false"
+        },
+        { "do": "Fri Show 7", "done": "false" },
+        { "do": "Fri Show 7", "done": "false" }
+      ]
+    }
+  ]
 }
