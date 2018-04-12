@@ -1,81 +1,46 @@
 {
-  "WeekDays": [
+  "Tasks": [
     {
+      "task": "1",
+      "done": "false",
       "day": "Monday",
-      "todo": [
-        {
-          "do": "Fri Show 1",
-          "done": "false"
-        },
-        { "do": "Fri Show 1", "done": "false" },
-        { "do": "Fri Show 1", "done": "false" }
-      ]
+      "id": 1
     },
     {
+      "task": "2",
+      "done": "false",
       "day": "Tuesday",
-      "todo": [
-        {
-          "do": "Fri Show 2",
-          "done": "false"
-        },
-        { "do": "Fri Show 2", "done": "false" },
-        { "do": "Fri Show 2", "done": "false" }
-      ]
+      "id": 2
     },
     {
-      "day": "Wednesday",
-      "todo": [
-        {
-          "do": "Fri Show 3",
-          "done": "false"
-        },
-        { "do": "Fri Show 3", "done": "false" },
-        { "do": "Fri Show 3", "done": "false" }
-      ]
+      "task": "112",
+      "done": "false",
+      "day": "Monday",
+      "id": 3
     },
     {
+      "task": "1",
+      "done": "false",
+      "day": "Monday",
+      "id": 4
+    },
+    {
+      "task": "324",
+      "done": "false",
       "day": "Thursday",
-      "todo": [
-        {
-          "do": "Fri Show 4",
-          "done": "false"
-        },
-        { "do": "Fri Show 4", "done": "false" },
-        { "do": "Fri Show 4", "done": "false" }
-      ]
+      "id": 5
     },
     {
-      "day": "Friday",
-      "todo": [
-        {
-          "do": "Fri Show 5",
-          "done": "false"
-        },
-        { "do": "Fri Show 5", "done": "false" },
-        { "do": "Fri Show 5", "done": "false" }
-      ]
+      "task": "4",
+      "done": "false",
+      "day": "Monday",
+      "id": 6
     },
     {
-      "day": "Saturday",
-      "todo": [
-        {
-          "do": "Fri Show 6",
-          "done": "false"
-        },
-        { "do": "Fri Show 6", "done": "false" },
-        { "do": "Fri Show 6", "done": "false" }
-      ]
-    },
-    {
-      "day": "Sunday",
-      "todo": [
-        {
-          "do": "Fri Show 7",
-          "done": "false"
-        },
-        { "do": "Fri Show 7", "done": "false" },
-        { "do": "Fri Show 7", "done": "false" }
-      ]
+      "task": "s",
+      "done": "false",
+      "day": "Monday",
+      "id": 7
     }
   ]
 }

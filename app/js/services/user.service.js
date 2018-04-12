@@ -1,29 +1,21 @@
-angular.module('todoApp').service('userService', ['$http', userService])
-// userService.$inject = ['$http']
+(function () {
+	angular.module('todoApp').service('userService', ['$http', userService]);
 
-function userService($http) {
-  var weakDaysURL = 'http://localhost:3000/WeekDays'
-  var service = {
-    addParagraph: addParagraph,
-    readAllUsers: readAllUsers,
-    deleteUsers: deleteUsers,
-    getAllDays: getAllDays
-  }
-  return service
+	function userService($http) {
 
-  function getAllDays() {
-    return $http.get('http://localhost:3000/WeekDays')
-  }
-  function addParagraph(data) {
-    console.log(data)
-    return $http.post('http://localhost:3000/WeekDays', data)
-  }
+		var service = {
+			addTask: addTask,
+			getAllTasks: getAllTasks
+		};
+		return service;
 
-  function readAllUsers() {
-    /* */
-  }
+		function getAllTasks() {
+			return $http.get('http://localhost:3000/Tasks')
+		}
 
-  function deleteUsers() {
-    /* */
-  }
-}
+		function addTask(data) {
+			return $http.post('http://localhost:3000/Tasks', data)
+		}
+
+	}
+})();

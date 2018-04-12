@@ -1,48 +1,63 @@
-;(function() {
-  angular.module('todoApp').component('todo', {
-    templateUrl: '/js/components/todo/todo.html',
-    controller: ('AddUserController', ['userService', AddUserController])
-  })
+(function () {
+	angular.module('todoApp').component('todo', {
+		templateUrl: '/js/components/todo/todo.html',
+		controller: ('AddUserController', ['userService', '$scope', AddUserController])
+	});
 
-  function AddUserController(userService, $http) {
-    var $ctrl = this
+	function AddUserController(userService, $scope) {
+		var $ctrl = this;
+		$ctrl.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+		$ctrl.activeTab = 'Monday';
 
-    $ctrl.name = ''
-    $ctrl.response
-    $ctrl.listToDo
-    $ctrl.activeTab
-    userService
-      .getAllDays()
-      .success(function(response) {
-        $ctrl.response = response
-        for (var key in $ctrl.response) {
-          if (key === '0') {
-            $ctrl.listToDo = $ctrl.response[key].todo
-            $ctrl.activeTab = $ctrl.response[key].day
-          }
-        }
-      })
-      .error(function(error) {
-        console.log('Something went wrong with request')
-      })
-    $ctrl.showTabs = function(data) {
-      $ctrl.listToDo = data.todo
-      $ctrl.activeTab = data.day
-    }
-    $ctrl.addNewTask = function(text) {
-      // console.log('  $ctrl.listToDo', $ctrl.listToDo)
-      // console.log('  $ctrl.activeTab', $ctrl.activeTab)
-      // console.log('text', text)
-      if (text != '') {
-        $ctrl.listToDo.push({
-          do: text,
-          done: 'false'
-        })
-        userService.addParagraph({
-          day: $ctrl.activeTab,
-          todo: $ctrl.listToDo
-        })
-      }
-    }
-  }
-})()
+		$ctrl.getAllTasks = getAllTasks;
+		$ctrl.addNewTask = addNewTask;
+		$ctrl.tasksFilter = tasksFilter;
+
+		$ctrl.getAllTasks();
+		$ctrl.tasksFilter('Monday');
+
+
+		//todo think how to refactor this
+		function tasksFilter(criteria) {
+			$ctrl.dayFilter = function () {
+				if (criteria === 'Monday') return function (task) {
+					return task.day === 'Monday';
+				};
+				if (criteria === 'Tuesday') return function (task) {
+					return task.day === 'Tuesday';
+				};
+				if (criteria === 'Wednesday') return function (task) {
+					return task.day === 'Wednesday';
+				};
+				if (criteria === 'Thursday') return function (task) {
+					return task.day === 'Thursday';
+				};
+				if (criteria === 'Friday') return function (task) {
+					return task.day === 'Friday';
+				};
+				if (criteria === 'Saturday') return function (task) {
+					return task.day === 'Saturday';
+				};
+				if (criteria === 'Sunday') return function (task) {
+					return task.day === 'Sunday';
+				};
+			}()
+		};
+
+
+		function getAllTasks() {
+			userService.getAllTasks().then(function (resp) {
+				$ctrl.allTasks = resp.data;
+			})
+		}
+
+		function addNewTask(taskText) {
+			if (taskText === '') return;
+			var data = {task: taskText, done: 'false', day: $ctrl.activeTab};
+			userService.addTask(data).then(getAllTasks);
+			$ctrl.task.text = '';
+		}
+
+	}
+
+})();
