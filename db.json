@@ -1,0 +1,130 @@
+{
+  "WeekDays": {
+    "Monday": [
+      {
+        "todo": "Fri Show 1",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 2",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 3",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 4",
+        "finish": "false"
+      }
+    ],
+    "Tuesday": [
+      {
+        "todo": "Fri Show 1",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 2",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 3",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 4",
+        "finish": "false"
+      }
+    ],
+    "Wednesday": [
+      {
+        "todo": "Fri Show 1",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 2",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 3",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 4",
+        "finish": "false"
+      }
+    ],
+    "Thursday": [
+      {
+        "todo": "Fri Show 1",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 2",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 3",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 4",
+        "finish": "false"
+      }
+    ],
+    "Friday": [
+      {
+        "todo": "Fri Show 1",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 2",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 3",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 4",
+        "finish": "false"
+      }
+    ],
+    "Saturday": [
+      {
+        "todo": "Fri Show 1",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 2",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 3",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 4",
+        "finish": "false"
+      }
+    ],
+    "Sunday": [
+      {
+        "todo": "Fri Show 1",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 2",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 3",
+        "finish": "false"
+      },
+      {
+        "todo": "Fri Show 4",
+        "finish": "false"
+      }
+    ]
+  }
+}
