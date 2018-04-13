@@ -6,8 +6,9 @@
 
 	function AddUserController(userService) {
 		var $ctrl = this;
-		$ctrl.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-		$ctrl.activeTab = 'Monday';
+		$ctrl.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+		$ctrl.activeTab = $ctrl.days[new Date().getDay()];
 
 		$ctrl.getAllTasks = getAllTasks;
 		$ctrl.addNewTask = addNewTask;
