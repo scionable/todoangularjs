@@ -1,15 +1,24 @@
 {
-  "name": "todo",
-  "description": "AngularJS",
-  "version": "1.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "name": "node-todo",
+  "description": "Simple todo application.",
+  "main": "server.js",
+  "authors": [
+    "Arthor <arthor_serdyuk@ukr.net>"
+  ],
   "license": "MIT",
-  "private": true,
+  "homepage": "",
   "dependencies": {
     "angular": "~1.5.0",
     "angular-route": "~1.5.0",
     "angular-loader": "~1.5.0",
     "angular-mocks": "~1.5.0",
     "angular-ui-router": "^1.0.15"
-  }
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
