@@ -15,7 +15,7 @@
 		$ctrl.tasksFilter = tasksFilter;
 
 		$ctrl.getAllTasks();
-		$ctrl.tasksFilter('Monday');
+		$ctrl.tasksFilter($ctrl.activeTab);
 
 
 		//todo think how to refactor this
