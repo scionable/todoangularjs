@@ -17,12 +17,7 @@ module.exports = function (app) {
 			done: false
 		}, function (err, todo) {
 			if (err) res.send(err);
-
-			Task.find((err, todos) => {
-				if (err) res.send(err);
-
-				res.json(todos);
-			});
+			res.json(todo);
 		});
 	});
 

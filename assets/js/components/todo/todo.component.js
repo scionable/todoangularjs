@@ -24,7 +24,9 @@
 		function addNewTask(taskText) {
 			if (taskText === '') return;
 			var data = {text: taskText, day: $ctrl.activeTab};
-			taskService.addTask(data).then(getAllTasks);
+			taskService.addTask(data).then(function (resp) {
+				$ctrl.allTasks.push(resp.data);
+			});
 		}
 
 	}
