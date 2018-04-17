@@ -7,15 +7,7 @@
 			$stateProvider
 				.state('home', {
 					url: '/',
-					templateUrl: '/templates/index.html',
-					controller: 'HomeController',
-					resolve: {
-						getAllTasks: function(userService) {
-							return userService.getAllTasks().then(function (resp) {
-								return resp.data;
-							});
-						}
-					}
+					templateUrl: '/templates/index.html'
 				})
 				.state('contacts', {
 					url: '/contacts',

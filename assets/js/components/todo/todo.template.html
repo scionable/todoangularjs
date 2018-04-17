@@ -14,12 +14,12 @@
 	<div>
 		<div class="row">
 			<p ng-repeat="task in $ctrl.allTasks | tasksFilter : $ctrl.dayFilter">
-				<span>{{task.task}}</span>
+				<span>{{task.text}}</span>
 			</p>
 		</div>
 		<div class="col s4">
 			<input type="text" ng-model="$ctrl.task.text">
-			<button ng-click="$ctrl.addNewTask($ctrl.task.text)" class="btn">Add</button>
+			<button ng-click="$ctrl.addNewTask($ctrl.task.text); $ctrl.task.text = ''" class="btn">Add</button>
 		</div>
 	</div>
 

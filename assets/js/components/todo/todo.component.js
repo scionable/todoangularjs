@@ -1,10 +1,10 @@
 (function () {
 	angular.module('todoApp').component('todo', {
-		templateUrl: '/js/components/todo/todo.html',
-		controller: ('AddUserController', ['userService', AddUserController])
+		templateUrl: '/js/components/todo/todo.template.html',
+		controller: ('AddUserController', ['taskService', AddUserController])
 	});
 
-	function AddUserController(userService) {
+	function AddUserController(taskService) {
 		var $ctrl = this;
 		$ctrl.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -15,7 +15,7 @@
 		$ctrl.tasksFilter = tasksFilter;
 
 		$ctrl.getAllTasks();
-		$ctrl.tasksFilter('Monday');
+		$ctrl.tasksFilter($ctrl.activeTab);
 
 
 		//todo think how to refactor this
@@ -47,16 +47,15 @@
 
 
 		function getAllTasks() {
-			userService.getAllTasks().then(function (resp) {
+			taskService.getAllTasks().then(function (resp) {
 				$ctrl.allTasks = resp.data;
 			})
 		}
 
 		function addNewTask(taskText) {
 			if (taskText === '') return;
-			var data = {task: taskText, done: 'false', day: $ctrl.activeTab};
-			userService.addTask(data).then(getAllTasks);
-			$ctrl.task.text = '';
+			var data = {text: taskText, day: $ctrl.activeTab};
+			taskService.addTask(data).then(getAllTasks);
 		}
 
 	}
