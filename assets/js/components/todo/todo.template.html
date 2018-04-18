@@ -13,8 +13,14 @@
 
 	<div>
 		<div class="row">
+			<div >$ctrl.showCountTask</div>
 			<p ng-repeat="task in $ctrl.allTasks | tasksFilter : $ctrl.activeTab">
+				<!--ng-change="$ctrl.getDoneTask(list, list.done)-->
+				<label> <input type="checkbox" class="filled-in" ng-model="task.done"  />
+					<span>fell</span>
+				</label>
 				<span>{{task.text}}</span>
+				<button ng-click="$ctrl.deleteTask(task._id)">Dell</button>
 			</p>
 		</div>
 		<div class="col s4">

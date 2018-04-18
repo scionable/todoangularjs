@@ -6,7 +6,8 @@
 
 		var service = {
 			addTask: addTask,
-			getAllTasks: getAllTasks
+			getAllTasks: getAllTasks,
+			deleteTask:deleteTask
 		};
 		return service;
 
@@ -17,6 +18,10 @@
 		function addTask(data) {
 			return $http.post('createTask', data)
 		}
-
+		function deleteTask(id) {
+			return $http.delete('/tasks/'+id);
+		}
+		
+		
 	}
 })();

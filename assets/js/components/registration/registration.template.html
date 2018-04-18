@@ -1,11 +1,22 @@
 <div class="registration-form">
-	<form name="registrationForm"  action="">
-		<input name="email" required ng-model="user.mail" placeholder="email" type="email">
-		<input required ng-model="user.firstName" placeholder="firstname" type="text">
-		<input required ng-model="user.lastName" placeholder="lastname" type="text">
-		<input required ng-model="user.password" placeholder="passsword" type="password">
-		<input required ng-model="user.passwordConfirm" placeholder="passsword" type="password">
-		<span class="error" ng-show="registrationForm.$invalid">Required!</span>
-		<button type="submit">Save</button>
+	<form name="registrationForm" action="" novalidate ng-submit="$ctrl.addNewUser(newUser)">
+		<div>
+			<label for="#">Email</label>
+			<input name="email" required ng-model="$ctrl.user.mail" type="email">
+		</div>
+		<div>
+			<label for="#">Name</label>
+			<input required ng-model="$ctrl.user.firstName" type="text">
+		</div>
+		<div>
+			<label for="#">LastName</label>
+			<input required ng-model="$ctrl.user.lastName" type="text">
+		</div>
+
+
+		<!-- <input required ng-model="$ctrl.user.password" placeholder="passsword" type="password">
+		<input required ng-model="$ctrl.user.passwordConfirm" placeholder="passsword" type="password"> -->
+		<!-- <span class="error" ng-show="registrationForm.$invalid">Required!</span> -->
+		<button type="submit" ng-disabled="registrationForm.$invalid" class="btn">Save</button>
 	</form>
 </div>

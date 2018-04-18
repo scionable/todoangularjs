@@ -19,4 +19,4 @@ mongoose.connect('mongodb://localhost/test')
 
 require('./api/routes/routes')(app);
 
-app.listen(9000);
+app.listen(7000);
