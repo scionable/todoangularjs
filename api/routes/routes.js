@@ -35,6 +35,12 @@ module.exports = function (app) {
 		});
 	});
 
+	app.patch('/completeTask', (req, res) => {
+		Task.findByIdAndUpdate({_id: req.body.id}, {$set: {done: req.body.done}}, {new: true}, function (err, task) {
+			if (err) res.send(err);
+			res.send(task);
+		});
+	});
 
 	app.get('*', (req, res) => {
 		res.sendfile('./assets/index.html');
