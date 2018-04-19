@@ -1,26 +1,27 @@
-<div>
+<div class='todo'>
 
 	<div class="row">
 		<div class="col s12">
 			<ul class="tabs">
-				<li class="tab col s1" ng-repeat="day in  $ctrl.days" ng-class="{active : $ctrl.activeTab === day}"
-				    ng-click="$ctrl.activeTab = day">
-					<a href="#test1">{{day}}</a>
+				<li class="tab col s1" ng-repeat="day in  $ctrl.days" ng-class="{active : $ctrl.activeTab === day}" ng-click="$ctrl.activeTab = day">
+					<a href="#test1">{{day}}
+						<span>/ {{$ctrl.countTask(day)}}</span>
+					</a>
 				</li>
 			</ul>
 		</div>
 	</div>
 
-	<div>
+	<div class="task">
 		<div class="row">
-			<div >$ctrl.showCountTask</div>
-			<p ng-repeat="task in $ctrl.allTasks | tasksFilter : $ctrl.activeTab">
-				<!--ng-change="$ctrl.getDoneTask(list, list.done)-->
-				<label> <input type="checkbox" class="filled-in" ng-model="task.done"  />
-					<span>fell</span>
+			<div>$ctrl.showCountTask</div>
+			<p ng-repeat="task in $ctrl.allTasks | tasksFilter : $ctrl.activeTab" class="task-main">
+				<label>
+					<input type="checkbox" class="filled-in" ng-model="task.done" />
+					<span>{{task.done}}</span>
 				</label>
-				<span>{{task.text}}</span>
-				<button ng-click="$ctrl.deleteTask(task._id)">Dell</button>
+				<span class="text">{{task.text}}</span>
+				<button ng-click="$ctrl.deleteTask(task._id)" class="btn">Dell</button>
 			</p>
 		</div>
 		<div class="col s4">
