@@ -14,10 +14,13 @@
 
 	<div class="task">
 		<div class="row">
+			<!--what the hell is this?-->
 			<div>$ctrl.showCountTask</div>
+
 			<p ng-repeat="task in $ctrl.allTasks | tasksFilter : $ctrl.activeTab" class="task-main">
+				<!--checkbox shows the task status so I do not want to see the word false or true on the screen-->
 				<label>
-					<input type="checkbox" class="filled-in" ng-model="task.done" />
+					<input type="checkbox" class="filled-in" ng-model="task.done"/>
 					<span>{{task.done}}</span>
 				</label>
 				<span class="text">{{task.text}}</span>
