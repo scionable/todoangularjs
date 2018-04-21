@@ -7,8 +7,10 @@
 		var service = {
 			addTask: addTask,
 			getAllTasks: getAllTasks,
-			deleteTask:deleteTask
+			deleteTask: deleteTask,
+			changeTaskDone: changeTaskDone
 		};
+
 		return service;
 
 		function getAllTasks() {
@@ -21,7 +23,10 @@
 		function deleteTask(id) {
 			return $http.delete('/tasks/'+id);
 		}
-		
-		
+
+		function changeTaskDone(data) {
+			return $http.patch('/completeTask', data);
+		}
+
 	}
 })();
