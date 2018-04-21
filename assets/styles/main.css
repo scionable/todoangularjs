@@ -11,6 +11,10 @@ menu {
 	padding: 0;
 }
 
+nav ul a.active {
+	background-color: rgba(0,0,0,0.1);
+}
+
 .tabs {
 	display: flex;
 	align-items: center;
