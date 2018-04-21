@@ -1,40 +1,32 @@
 <div>
 
-	<div class="row">
-		<div class="col s12">
-			<ul class="tabs">
-				<li class="tab col s1" ng-repeat="day in  $ctrl.days" ng-class="{active : $ctrl.activeTab === day}" ng-click="$ctrl.activeTab = day">
-					<a href="">{{day}}
-						<span>/ {{$ctrl.countTask(day)}}</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+	<ul class="tabs">
+		<li class="tab" ng-repeat="day in  $ctrl.days" ng-class="{active : $ctrl.activeTab === day}"
+		    ng-click="$ctrl.activeTab = day">
+			<a href="">{{day}}
+				<span>/ {{$ctrl.countTask(day)}}</span>
+			</a>
+		</li>
+	</ul>
 
-	<div>
-		<div class="row">
-
-			<p ng-repeat="task in $ctrl.allTasks | tasksFilter : $ctrl.activeTab" class="task-main">
-
-				<label>
-					<input
-						type="checkbox"
-						class="filled-in"
-						ng-model="task.done"
-						ng-change="$ctrl.changeTaskDone(task._id, task.done)
+	<div ng-repeat="task in $ctrl.allTasks | tasksFilter : $ctrl.activeTab" class="task">
+		<label class="task__text">
+			<input
+					type="checkbox"
+					class="filled-in"
+					ng-model="task.done"
+					ng-change="$ctrl.changeTaskDone(task._id, task.done)
 					"/>
-					<span class="text">{{task.text}}</span>
-				</label>
-
-				<button ng-click="$ctrl.deleteTask(task._id)" class="btn">Dell</button>
-			</p>
-
-		</div>
-		<div class="col s4">
-			<input type="text" ng-model="$ctrl.task.text">
-			<button ng-click="$ctrl.addNewTask($ctrl.task.text); $ctrl.task.text = ''" class="btn">Add</button>
-		</div>
+			<span class="text">{{task.text}}</span>
+		</label>
+		<button ng-click="$ctrl.deleteTask(task._id)" class="btn task__btn-delete">Dell</button>
 	</div>
+
+
+	<div class="col s4">
+		<input type="text" ng-model="$ctrl.task.text">
+		<button ng-click="$ctrl.addNewTask($ctrl.task.text); $ctrl.task.text = ''" class="btn">Add</button>
+	</div>
+
 
 </div>

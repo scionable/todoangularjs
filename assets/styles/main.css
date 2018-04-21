@@ -7,10 +7,18 @@ body {
 	padding: 0;
 }
 
+menu {
+	padding: 0;
+}
+
 .tabs {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+.tabs .tab {
+	width: 14%;
 }
 
 .tabs .tab a {
@@ -19,7 +27,6 @@ body {
 
 .active {
 	background: #ee6e73;
-	transform: 3s;
 }
 
 .active a {
@@ -31,4 +38,17 @@ body {
 	color: white;
 	width: 100px;
 	height: 30px;
+}
+
+
+.task {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+
+.task__text {
+	width: 100%;
+	color: #000;
 }
