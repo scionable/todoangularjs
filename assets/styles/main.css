@@ -33,17 +33,9 @@ nav ul a.active {
 	background: #ee6e73;
 }
 
-.active a {
-	color: white !important;
-}
-
-.btn {
-	background: #ee6e73;
+.tabs .tab.active a{
 	color: white;
-	width: 100px;
-	height: 30px;
 }
-
 
 .task {
 	display: flex;
