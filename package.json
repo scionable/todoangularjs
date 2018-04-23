@@ -13,7 +13,11 @@
 		"method-override": "^2.3.10",
 		"mongodb": "^3.0.6",
 		"mongoose": "^5.0.14",
+		"mongoose-findorcreate": "^3.0.0",
 		"morgan": "^1.9.0",
 		"nodemon": "^1.17.3"
+	},
+	"devDependencies": {
+		"mongoose-find-one-or-create": "^0.2.0"
 	}
 }
