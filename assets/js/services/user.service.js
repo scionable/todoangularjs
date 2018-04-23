@@ -1,11 +1,19 @@
-angular.module('todoApp').service('usersService', ['$http', usersService]);
+(function () {
+	angular.module('todoApp')
+		.service('userService', ['$http', userService]);
 
-function usersService($http) {
-  var allUsers = {
-    addNewUser: addNewUser
-  };
-  return allUsers;
-  function addNewUser(data) {
-    //return $http.post('createTask', data);
-  }
-}
+	function userService($http) {
+
+		var service = {
+			registerUser: registerUser
+		};
+
+		return service;
+
+		function registerUser(data) {
+			return $http.post('registerUser', data)
+		}
+
+	}
+
+})();

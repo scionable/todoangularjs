@@ -7,10 +7,22 @@ body {
     padding: 0;
 }
 
+menu {
+	padding: 0;
+}
+
+nav ul a.active {
+	background-color: rgba(0,0,0,0.1);
+}
+
 .tabs {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.tabs .tab {
+	width: 14%;
 }
 
 .tabs .tab a {
@@ -20,52 +32,21 @@ body {
 }
 
 .active {
-    background: #ee6e73;
-    transform: 3s;
+	background: #ee6e73;
 }
 
-.active a {
-    color: white !important;
+.tabs .tab.active a{
+	color: white;
 }
 
-.btn {
-    background: #ee6e73;
-    color: white;
-    width: 100px;
-    height: 30px;
+.task {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px 0;
 }
 
-.todo {
-    max-width: 1000px;
-}
-
-.todo .task {
-    max-width: 1000px;
-    padding: 20px 20px 20px 60px;
-}
-
-.task-main {
-    width: 100%;
-    text-align: left;
-    display: flex;
-}
-
-.task-main label {
-    width: 10%;
-}
-
-.task-main .text {
-    text-align: left;
-    width: 200px;
-    max-width: 50%;
-    display: inline-block;
-}
-
-.task-main button {
-    width: 10%;
-}
-
-.registration-form {
-    max-width: 600px;
-    padding: 50px;
+.task__text {
+	width: 100%;
+	color: #000;
 }

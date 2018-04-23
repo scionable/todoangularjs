@@ -10,18 +10,29 @@
     };
     return service;
 
-    function getAllTasks() {
-      return $http.get('getAllTasks');
-    }
+		var service = {
+			addTask: addTask,
+			getAllTasks: getAllTasks,
+			deleteTask: deleteTask,
+			changeTaskDone: changeTaskDone
+		};
 
-    function addTask(data) {
-      return $http.post('createTask', data);
-    }
-    function deleteTask(id) {
-      return $http.delete('/tasks/' + id);
-    }
-    function changeTaskDone(data) {
-      return $http.patch('/completeTask', data);
-    }
-  }
+		return service;
+
+		function getAllTasks() {
+			return $http.get('getAllTasks')
+		}
+
+		function addTask(data) {
+			return $http.post('createTask', data)
+		}
+		function deleteTask(id) {
+			return $http.delete('/tasks/'+id);
+		}
+
+		function changeTaskDone(data) {
+			return $http.patch('/completeTask', data);
+		}
+
+	}
 })();
