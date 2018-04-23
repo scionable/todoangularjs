@@ -1,4 +1,5 @@
 let Task = require('../models/Task');
+let User = require('../models/User');
 
 module.exports = function (app) {
 
@@ -41,6 +42,31 @@ module.exports = function (app) {
 			res.send(task);
 		});
 	});
+
+
+	app.post('registerUser', (req, res) => {
+		User.find((err, todos) => {
+			if (err) res.send(err);
+
+			res.json(todos);
+		});
+
+
+
+		User.create({
+			name: req.body.name,
+			email: req.body.email,
+			password: req.body.password
+		}, function (err, user) {
+			if (err) res.send(err);
+			res.json(user);
+		});
+	});
+
+
+
+
+
 
 	app.get('*', (req, res) => {
 		res.sendfile('./assets/index.html');

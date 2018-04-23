@@ -1,22 +1,57 @@
-<div class="registration-form">
-	<form name="registrationForm" action="" novalidate ng-submit="$ctrl.addNewUser(newUser)">
-		<div>
-			<label for="#">Email</label>
-			<input name="email" required ng-model="$ctrl.user.mail" type="email">
-		</div>
-		<div>
-			<label for="#">Name</label>
-			<input required ng-model="$ctrl.user.firstName" type="text">
-		</div>
-		<div>
-			<label for="#">LastName</label>
-			<input required ng-model="$ctrl.user.lastName" type="text">
-		</div>
+<div class="row">
+	<!--<div class="col s12">-->
+		<!--<ul class="auth-tabs">-->
+			<!--<li class="tab col s6">-->
+				<!--<a href="#login" class="active" >Login</a>-->
+			<!--</li>-->
+			<!--<li class="tab col s6">-->
+				<!--<a href="#register">Register</a>-->
+			<!--</li>-->
+		<!--</ul>-->
+	<!--</div>-->
 
+	<!--<div id="login" class="col s12">-->
+		<!--<div class="login-form">-->
 
-		<!-- <input required ng-model="$ctrl.user.password" placeholder="passsword" type="password">
-		<input required ng-model="$ctrl.user.passwordConfirm" placeholder="passsword" type="password"> -->
-		<!-- <span class="error" ng-show="registrationForm.$invalid">Required!</span> -->
-		<button type="submit" ng-disabled="registrationForm.$invalid" class="btn">Save</button>
-	</form>
+			<!--<form name="loginForm" action="" ng-submit="$ctrl.addNewUser(newUser)">-->
+				<!--<div>-->
+					<!--<label for="#">Login</label>-->
+					<!--<input name="login" ng-model="$ctrl.user.firstName" type="text">-->
+				<!--</div>-->
+				<!--<div>-->
+					<!--<label for="#">Password</label>-->
+					<!--<input name="text" ng-model="$ctrl.user.mail" type="password">-->
+				<!--</div>-->
+				<!--<button type="submit" ng-disabled="registrationForm.$invalid" class="btn">Login</button>-->
+			<!--</form>-->
+		<!--</div>-->
+	<!--</div>-->
+
+	<div id="register" class="col s12">
+		<div class="registration-form">
+
+			<form name="registrationForm" action="" ng-submit="$ctrl.registerUser($ctrl.user)">
+
+				<div>
+					<label for="#">Email</label>
+					<input name="email" ng-model="$ctrl.user.email" type="email">
+				</div>
+
+				<div>
+					<label for="#">Name</label>
+					<input name="name" ng-model="$ctrl.user.name" type="text">
+				</div>
+
+				<div>
+					<label for="#">Password</label>
+					<input name="password" ng-model="$ctrl.user.password" type="password">
+				</div>
+
+				<button type="submit" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register</button>
+
+			</form>
+		</div>
+	</div>
+
 </div>
+

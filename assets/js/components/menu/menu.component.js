@@ -11,7 +11,7 @@
 			{sref: 'home', text: 'Home'},
 			{sref: 'contacts', text: 'Contacts'},
 			{sref: 'task-list', text: 'Task-list'},
-			{sref: 'registration', text: 'Registration'}
+			{sref: 'auth', text: 'Registration'}
 		]
 	}
 

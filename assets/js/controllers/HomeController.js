@@ -3,5 +3,6 @@ angular.module('todoApp')
 
 function HomeController(getAllTasks) {
 	var $ctrl = this;
-	$ctrl.days = getAllTasks;
+
+	$ctrl.allTasks = getAllTasks;
 }

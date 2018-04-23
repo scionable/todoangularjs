@@ -33,8 +33,8 @@
 						}]
 					}
 				})
-				.state('registration', {
-					url: '/registration',
+				.state('auth', {
+					url: '/auth',
 					component: 'registration'
 				})
 		}
