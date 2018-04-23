@@ -1,8 +1,12 @@
 <div>
 
 	<ul class="tabs">
-		<li class="tab" ng-repeat="day in  $ctrl.days" ng-class="{active : $ctrl.activeTab === day}"
-		    ng-click="$ctrl.activeTab = day">
+		<li
+			class="tab"
+			ng-repeat="day in  $ctrl.days"
+			ng-class="{active : $ctrl.activeTab === day}"
+	        ng-click="$ctrl.activeTab = day"
+		>
 			<a href="">{{day}}
 				<span>/ {{$ctrl.countTask(day)}}</span>
 			</a>

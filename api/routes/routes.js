@@ -53,14 +53,12 @@ module.exports = function(app) {
 	});
 
 
-	app.post('registerUser', (req, res) => {
+	app.post('/registerUser', (req, res) => {
 		User.find((err, todos) => {
 			if (err) res.send(err);
 
 			res.json(todos);
 		});
-
-
 
 		User.create({
 			name: req.body.name,

@@ -9,10 +9,9 @@
 
 		$ctrl.registerUser = registerUser;
 
-		function registerUser(data) {
-
+		function registerUser(ev, data) {
+			ev.preventDefault();
 			userService.registerUser(data)
-
 		}
 	}
 

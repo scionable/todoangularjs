@@ -11,7 +11,7 @@
 		return service;
 
 		function registerUser(data) {
-			return $http.post('registerUser', data)
+			return $http.post('/registerUser', data)
 		}
 
 	}

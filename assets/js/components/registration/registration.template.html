@@ -30,7 +30,7 @@
 	<div id="register" class="col s12">
 		<div class="registration-form">
 
-			<form name="registrationForm" action="" ng-submit="$ctrl.registerUser($ctrl.user)">
+			<form name="registrationForm" action="" ng-submit="">
 
 				<div>
 					<label for="#">Email</label>
@@ -47,7 +47,7 @@
 					<input name="password" ng-model="$ctrl.user.password" type="password">
 				</div>
 
-				<button type="submit" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register</button>
+				<button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register</button>
 
 			</form>
 		</div>
