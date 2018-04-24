@@ -9,7 +9,7 @@
 
     $ctrl.registerUser = registerUser;
     $ctrl.activeTab = activeTab;
-    $ctrl.tab = $ctrl.activeTab;
+    $ctrl.tab = 'Login';
     $ctrl.tabsTitle = ['Login', 'Registration'];
 
     function registerUser(ev, data) {
@@ -17,8 +17,8 @@
       userService.registerUser(data);
     }
     function activeTab(activeTab) {
-      console.log('activeTab', activeTab);
-      return activeTab;
+
+	    $ctrl.tab = activeTab;
     }
   }
 })();
