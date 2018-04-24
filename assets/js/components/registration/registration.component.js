@@ -6,19 +6,19 @@
 
   function RegistrationController(userService) {
     let $ctrl = this;
+	  $ctrl.activeTab
+    // $ctrl.registerUser = registerUser;
+    //
+    //
+    // function registerUser(ev, data) {
+    //   ev.preventDefault();
+    //   userService.registerUser(data)
+	 //      .then(
+    //   	function (reg) {
+    //
+    //     }
+    //   ).error();
+    // }
 
-    $ctrl.registerUser = registerUser;
-    $ctrl.activeTab = activeTab;
-    $ctrl.tab = 'Login';
-    $ctrl.tabsTitle = ['Login', 'Registration'];
-
-    function registerUser(ev, data) {
-      ev.preventDefault();
-      userService.registerUser(data);
-    }
-    function activeTab(activeTab) {
-
-	    $ctrl.tab = activeTab;
-    }
   }
 })();

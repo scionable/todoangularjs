@@ -1,0 +1,18 @@
+<div class="login-form">
+
+	<form name="loginForm" action="" ng-submit="">
+
+		<div>
+			<label for="#">Email</label>
+			<input name="email" ng-model="$ctrl.user.email" type="email">
+		</div>
+
+		<div>
+			<label for="#">Name</label>
+			<input name="name" ng-model="$ctrl.user.name" type="text">
+		</div>
+
+		<button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register</button>
+
+	</form>
+</div>

@@ -1,36 +1,20 @@
 <div class="">
 
 	<ul class="form-tab">
-		<li ng-repeat=" title in $ctrl.tabsTitle" ng-class="$ctrl.tab == titlee ? active : ''" >
-			<a href="" ng-click="$ctrl.activeTab(title)">{{title}}</a>
+		<li  >
+			<a href="" ng-click="$ctrl.activeTab=!$ctrl.activeTab">Login</a>
+		</li>
+		<li >
+			<a href="" ng-click="$ctrl.activeTab=!$ctrl.activeTab">Registration</a>
 		</li>
 	</ul>
 
-	<div ng-show=" $ctrl.tab=== 'Login'">Test 1</div>
-	<div ng-show=" $ctrl.tab === 'Registration'">
-		<div class="registration-form">
-
-			<form name="registrationForm" action="" ng-submit="">
-
-				<div>
-					<label for="#">Email</label>
-					<input name="email" ng-model="$ctrl.user.email" type="email">
-				</div>
-
-				<div>
-					<label for="#">Name</label>
-					<input name="name" ng-model="$ctrl.user.name" type="text">
-				</div>
-
-				<div>
-					<label for="#">Password</label>
-					<input name="password" ng-model="$ctrl.user.password" type="password">
-				</div>
-
-				<button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register</button>
-
-			</form>
-		</div>
-	</div></div>
+	<div ng-show="$ctrl.activeTab">
+		<h2 class="title">login</h2>
+	</div>
+	<div ng-show="!$ctrl.activeTab">
+		<h2 class="title">Registration</h2>
+		<form-registration></form-registration>
+	</div>
 
 </div>
