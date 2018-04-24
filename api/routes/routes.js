@@ -47,13 +47,27 @@ module.exports = function (app) {
 		User.find({email: email}, (err, user) => {
 			if (err) res.send(err);
 			if(user.length) {
-				res.send(`${user} with this email already exist`);
+				res.send(`User with this email already exist`);
 			} else {
 				User.create({name: name, email: email, password: password}, (err, user) => {
 						if (err) res.send(err);
 						res.json(user);
 					}
 				);
+			}
+		});
+	});
+
+	app.post('/login', (req, res) => {
+		let email = req.body.email || undefined;
+		let password = req.body.password || undefined;
+
+		User.find({email: email, password: password}, (err, user) => {
+			if (err) res.send(err);
+			if(!user.length) {
+				res.send(`Wrong credentials`);
+			} else {
+				res.send(user);
 			}
 		});
 	});
