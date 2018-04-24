@@ -12,13 +12,7 @@ module.exports = function (app) {
 	});
 
 	app.post('/createTask', (req, res) => {
-		Task.create(
-			{
-				text: req.body.text,
-				day: req.body.day,
-				done: false
-			},
-			function (err, todo) {
+		Task.create({text: req.body.text, day: req.body.day, done: false}, (err, todo) => {
 				if (err) res.send(err);
 				res.json(todo);
 			}
@@ -26,11 +20,7 @@ module.exports = function (app) {
 	});
 
 	app.delete('/tasks/:todo_id', (req, res) => {
-		Task.remove(
-			{
-				_id: req.params.todo_id
-			},
-			function (err, todo) {
+		Task.remove({_id: req.params.todo_id}, (err, todo) => {
 				if (err) res.send(err);
 
 				Task.find((err, todos) => {
@@ -42,12 +32,8 @@ module.exports = function (app) {
 		);
 	});
 
-	app.get('*', (req, res) => {
-		res.sendfile('./assets/index.html');
-	});
-
 	app.patch('/completeTask', (req, res) => {
-		Task.findByIdAndUpdate({_id: req.body.id}, {$set: {done: req.body.done}}, {new: true}, function (err, task) {
+		Task.findByIdAndUpdate({_id: req.body.id}, {$set: {done: req.body.done}}, {new: true}, (err, task) => {
 			if (err) res.send(err);
 			res.send(task);
 		});
@@ -58,13 +44,16 @@ module.exports = function (app) {
 		let email = req.body.email || undefined;
 		let password = req.body.password || undefined;
 
-		User.findOrCreate({name: name, email: email, password: password}, function(err, user, created) {
-			if(err) res.send(err);
-			if(!created) {
-				res.send(`${user} already exist`);
+		User.find({email: email}, (err, user) => {
+			if (err) res.send(err);
+			if(user.length) {
+				res.send(`${user} with this email already exist`);
 			} else {
-				res.json(user);
-				console.log('A new user been created');
+				User.create({name: name, email: email, password: password}, (err, user) => {
+						if (err) res.send(err);
+						res.json(user);
+					}
+				);
 			}
 		});
 	});
