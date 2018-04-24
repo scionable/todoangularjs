@@ -50,3 +50,21 @@ nav ul a.active {
 	width: 100%;
 	color: #000;
 }
+.fotm-registration{
+	max-width: 1000px;
+}
+.form-tab{
+	display: flex;
+	justify-content: space-around;
+
+
+}
+.form-tab li a {
+	color:#ee6e73;
+	text-transform: uppercase;
+}
+.form-tab .active a{
+	background: #ee6e73;
+	color:white;
+	padding: 10px 20px;
+}

@@ -1,13 +1,13 @@
 <div class="">
 
-	<ul>
-		<li ng-repeat=" title in $ctrl.tabsTitle">
+	<ul class="form-tab">
+		<li ng-repeat=" title in $ctrl.tabsTitle" ng-class="$ctrl.tab == titlee ? active : ''" >
 			<a href="" ng-click="$ctrl.activeTab(title)">{{title}}</a>
 		</li>
 	</ul>
 
-	<div ng-show=" $ctrl.tab== Login">Test 1</div>
-	<div ng-show=" $ctrl.tab == Registration">
+	<div ng-show=" $ctrl.tab=== 'Login'">Test 1</div>
+	<div ng-show=" $ctrl.tab === 'Registration'">
 		<div class="registration-form">
 
 			<form name="registrationForm" action="" ng-submit="">
@@ -31,9 +31,6 @@
 
 			</form>
 		</div>
-	</div>
-
-</div>
-</div>
+	</div></div>
 
 </div>
