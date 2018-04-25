@@ -6,19 +6,23 @@
 
   function RegistrationController(userService) {
     let $ctrl = this;
-	  $ctrl.activeTab
+    $ctrl.activeTab;
+    $ctrl.active = {
+      background: '#ee6e73',
+      color: 'white',
+      padding: '10px 20px'
+    };
     // $ctrl.registerUser = registerUser;
     //
     //
     // function registerUser(ev, data) {
     //   ev.preventDefault();
     //   userService.registerUser(data)
-	 //      .then(
+    //      .then(
     //   	function (reg) {
     //
     //     }
     //   ).error();
     // }
-
   }
 })();

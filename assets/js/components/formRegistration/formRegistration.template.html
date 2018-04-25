@@ -1,0 +1,26 @@
+<!-- <div class="registration-form"> -->
+<div>
+    <!-- <form name="registrationForm" action="" ng-submit=""> -->
+    <form>
+        <div>
+            <label for="#">Email</label>
+            <input name="email" ng-model="$ctrl.user.email" type="email">
+            <span> please add correct email</span>
+        </div>
+
+        <div>
+            <label for="#">Name</label>
+            <input name="name" ng-model="$ctrl.user.name" type="text">
+            <span> please add correct name</span>
+        </div>
+
+        <div>
+            <label for="#">Password</label>
+            <input name="password" ng-model="$ctrl.user.password" type="password">
+            <span> please add correct password</span>
+        </div>
+
+        <!-- <button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register</button> -->
+
+    </form>
+</div>

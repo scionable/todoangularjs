@@ -1,20 +1,21 @@
 <div class="">
 
-	<ul class="form-tab">
-		<li  >
-			<a href="" ng-click="$ctrl.activeTab=!$ctrl.activeTab">Login</a>
-		</li>
-		<li >
-			<a href="" ng-click="$ctrl.activeTab=!$ctrl.activeTab">Registration</a>
-		</li>
-	</ul>
+    <ul class="form-tab">
+        <li ng-click="$ctrl.activeTab=!$ctrl.activeTab">
+            <a href="" ng-class="$ctrl.activeTab?  'active': ''">Login</a>
+        </li>
+        <li ng-click="$ctrl.activeTab=!$ctrl.activeTab">
+            <a href="" ng-class="$ctrl.activeTab?  '': 'active'">Registration</a>
+        </li>
+    </ul>
 
-	<div ng-show="$ctrl.activeTab">
-		<h2 class="title">login</h2>
-	</div>
-	<div ng-show="!$ctrl.activeTab">
-		<h2 class="title">Registration</h2>
-		<form-registration></form-registration>
-	</div>
+    <div ng-show="$ctrl.activeTab">
+        <h2 class="title">login {{ $ctrl.activeTab }}</h2>
+
+    </div>
+    <div ng-show="!$ctrl.activeTab">
+        <h2 class="title">Registration {{ $ctrl.activeTab }}</h2>
+        <formRegistration></formRegistration>
+    </div>
 
 </div>
