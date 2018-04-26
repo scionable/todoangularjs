@@ -8,11 +8,16 @@
 		</div>
 
 		<div>
-			<label for="#">Name</label>
-			<input name="name" ng-model="$ctrl.user.name" type="text">
+			<label for="#">Password</label>
+			<input name="Password" ng-model="$ctrl.user.password" type="Password">
 		</div>
 
-		<button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register</button>
+		<button
+			type="submit"
+			ng-click="$ctrl.loginUser($event, $ctrl.user)"
+			ng-disabled="loginForm.$invalid"
+			class="btn register-btn">Login
+		</button>
 
 	</form>
 </div>

@@ -10,9 +10,9 @@ function register(req, res) {
 	let email = req.body.email || undefined;
 	let password = req.body.password || undefined;
 
-	User.find({email: email}, (err, user) => {
+	User.findOne({email: email}, (err, user) => {
 		if (err) res.send(err);
-		if (user.length) {
+		if (user) {
 			res.send(`User with this email already exist`);
 		} else {
 			User.create({name: name, email: email, password: password}, (err, user) => {
@@ -28,12 +28,8 @@ function login(req, res) {
 	let email = req.body.email || undefined;
 	let password = req.body.password || undefined;
 
-	User.find({email: email, password: password}, (err, user) => {
+	User.findOne({email: email, password: password}, (err, user) => {
 		if (err) res.send(err);
-		if (!user.length) {
-			res.send(`Wrong credentials`);
-		} else {
-			res.send(user);
-		}
+		user ? res.send(user) : res.send(`Wrong credentials`);
 	});
 }
