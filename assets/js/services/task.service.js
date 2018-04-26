@@ -31,7 +31,7 @@
 		}
 
 		function changeTaskDone(data) {
-			return $http.patch('/completeTask', data);
+			return $http.patch('/modifyTask', data);
 		}
 
 	}
