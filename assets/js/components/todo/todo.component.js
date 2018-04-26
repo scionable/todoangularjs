@@ -15,8 +15,9 @@
 
 		$ctrl.addNewTask = addNewTask;
 		$ctrl.deleteTask = deleteTask;
-		$ctrl.countTasksByDay = countTasksByDay;
+		$ctrl.countTask = countTask;
 		$ctrl.changeTaskDone = changeTaskDone;
+		$ctrl.count = 0;
 
 		function addNewTask(taskText) {
 			if (taskText === '') return;
@@ -26,18 +27,15 @@
 			});
 		}
 
-		function countTasksByDay(day) {
-			$ctrl.counter = $ctrl.allTasks.filter(function (task) {
-				return task.day === day;
+		//todo refactor letiable names and debug this method, think how to optimaze it
+		function countTask(day) {
+			let i = 0;
+			$ctrl.allTasks.filter(function (iter) {
+				if (iter.day === day) {
+					i++;
+				}
 			});
-			return $ctrl.counter.length;
-		}
-
-		function deleteTask(id) {
-			taskService.deleteTask(id).then(function (response) {
-
-				$ctrl.allTasks = response.data
-			})
+			return i;
 		}
 
 		function deleteTask(id) {
