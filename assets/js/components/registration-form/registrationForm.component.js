@@ -1,23 +1,40 @@
-(function () {
-	angular.module('todoApp').component('registrationForm', {
-		templateUrl: 'js/components/registration-form/registrationForm.template.html',
-		controller: ('registrationFormController', ['userService', registrationFormController])
-	});
+(function() {
+  angular.module('todoApp').component('registrationForm', {
+    templateUrl: 'js/components/registration-form/registrationForm.template.html',
+    controller: ('registrationFormController', ['userService', registrationFormController])
+  });
 
-	function registrationFormController(userService) {
+  function registrationFormController(userService) {
+    let $ctrl = this;
+    $ctrl.registerUser = registerUser;
+    $ctrl.validation = validation;
 
-		let $ctrl = this;
+    $ctrl.user = {};
 
-		let regexText = /^[А-Я]{0,1}[а-я]{1,15}( [А-Я]{0,1}[а-я]{1,15}){0,1}$|^[A-Z]{0,1}[a-z]{1,15}( [A-Z]{0,1}[a-z]{1,15}){0,1}$/g;
-		let regexNum = /^\d[\d\(\)\ -]{4,14}\d$/;
-		let regexEmail = /^[a-zA-Z0-9_\-\.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
+    $ctrl.regexName = /^([а-яё]+|[a-z]+)$/i;
+    $ctrl.regexPass = /^[a-z0-9_-]{3,16}$/;
+    $ctrl.regexEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
 
-		$ctrl.registerUser = registerUser;
+    function validation(value, name) {
+      if (name === 'name') $ctrl.inputName = $ctrl.regexName.test(value);
+      if (name === 'email') $ctrl.inputEmail = $ctrl.regexEmail.test(value);
+      if (name === 'password') $ctrl.inputPass = $ctrl.regexPass.test(value);
+    }
 
-		function registerUser(ev, data) {
-			ev.preventDefault();
-			userService.registerUser(data);
-		}
-	}
+    function registerUser(ev) {
+      ev.preventDefault();
+      if ($ctrl.inputName && $ctrl.inputEmail && $ctrl.inputPass) {
+        userService.registerUser($ctrl.user).then(function(response) {
+          console.log(response);
+          if (typeof response.data === 'string') {
+            console.log('typeof string', response);
+          }
+        });
 
+        $ctrl.user.name = '';
+        $ctrl.user.email = '';
+        $ctrl.user.password = '';
+      }
+    }
+  }
 })();

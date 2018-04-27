@@ -1,32 +1,28 @@
 <div class="registration-form">
 
-	<form name="registration-form" action="" ng-submit="">
+    <form name="registration-form" action="" ng-submit="">
 
-		<div>
-			<label for="#">Email</label>
-			<input name="email" ng-model="$ctrl.user.email" type="email">
-			<span> please add correct email</span>
-		</div>
+        <div>
+            <label for="#">Email</label>
+            <input name="email" ng-model="$ctrl.user.email" type="email" ng-change=" $ctrl.validation($ctrl.user.email, 'email')">
+            <span ng-show="$ctrl.inputEmail === false" class="error"> please add correct email</span>
+        </div>
 
-		<div>
-			<label for="#">Name</label>
-			<input name="name" ng-model="$ctrl.user.name" type="text">
-			<span> please add correct name</span>
-		</div>
+        <div>
+            <label for="#">Name</label>
+            <input name="name" ng-model="$ctrl.user.name" type="text" ng-change="$ctrl.validation($ctrl.user.name, 'name')">
+            <span ng-show="$ctrl.inputName === false" class="error"> please add correct name</span>
+        </div>
 
-		<div>
-			<label for="#">Password</label>
-			<input name="password" ng-model="$ctrl.user.password" type="password">
-			<span> please add correct password</span>
-		</div>
+        <div>
+            <label for="#">Password</label>
+            <input name="password" ng-model="$ctrl.user.password" type="password" ng-change="$ctrl.validation($ctrl.user.password, 'password')">
+            <span ng-show="$ctrl.inputPass === false" class="error"> please add correct password</span>
+        </div>
 
-		<button
-			type="submit"
-			ng-click="$ctrl.registerUser($event, $ctrl.user)"
-			ng-disabled="registrationForm.$invalid"
-			class="btn register-btn">Register
-		</button>
+        <button type="submit" ng-click="$ctrl.registerUser($event)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register
+        </button>
 
-	</form>
+    </form>
 
 </div>
