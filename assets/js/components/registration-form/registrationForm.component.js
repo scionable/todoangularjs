@@ -15,6 +15,7 @@
     $ctrl.regexPass = /^[a-z0-9_-]{3,16}$/;
     $ctrl.regexEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
 
+    $ctrl.existUser = false;
     function validation(value, name) {
       if (name === 'name') $ctrl.inputName = $ctrl.regexName.test(value);
       if (name === 'email') $ctrl.inputEmail = $ctrl.regexEmail.test(value);
@@ -24,12 +25,18 @@
     function registerUser(ev) {
       ev.preventDefault();
       if ($ctrl.inputName && $ctrl.inputEmail && $ctrl.inputPass) {
-        userService.registerUser($ctrl.user).then(function(response) {
-          console.log(response);
-          if (typeof response.data === 'string') {
-            console.log('typeof string', response);
-          }
-        });
+        userService
+          .registerUser($ctrl.user)
+          .then(function(response) {
+            console.log(response);
+            if (typeof response.data === 'string') {
+              console.log('typeof string', response);
+              $ctrl.existUser = true;
+            }
+          })
+          .catch(function(err) {
+            console.log('Error now is:', err);
+          });
 
         $ctrl.user.name = '';
         $ctrl.user.email = '';

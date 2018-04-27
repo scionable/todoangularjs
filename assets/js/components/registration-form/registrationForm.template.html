@@ -22,7 +22,7 @@
 
         <button type="submit" ng-click="$ctrl.registerUser($event)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register
         </button>
-
     </form>
+    <div ng-show="$ctrl.existUser" class="registration-form__exist">This user already exist. You need just Login ;)</div>
 
 </div>
