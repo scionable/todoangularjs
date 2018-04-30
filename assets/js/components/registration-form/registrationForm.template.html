@@ -4,19 +4,22 @@
 
         <div>
             <label for="#">Email</label>
-            <input name="email" ng-model="$ctrl.user.email" type="email" ng-change=" $ctrl.validation($ctrl.user.email, 'email')">
+            <!-- ng-change=" $ctrl.validation($ctrl.user.email, 'email')" -->
+            <input name="email" ng-model="$ctrl.user.email" type="email">
             <span ng-show="$ctrl.inputEmail === false" class="error"> please add correct email</span>
         </div>
 
         <div>
             <label for="#">Name</label>
-            <input name="name" ng-model="$ctrl.user.name" type="text" ng-change="$ctrl.validation($ctrl.user.name, 'name')">
+            <!-- ng-change="$ctrl.validation($ctrl.user.name, 'name')" -->
+            <input name="name" ng-model="$ctrl.user.name" type="text">
             <span ng-show="$ctrl.inputName === false" class="error"> please add correct name</span>
         </div>
 
         <div>
             <label for="#">Password</label>
-            <input name="password" ng-model="$ctrl.user.password" type="password" ng-change="$ctrl.validation($ctrl.user.password, 'password')">
+            <!-- ng-change="$ctrl.validation($ctrl.user.password, 'password')" -->
+            <input name="password" ng-model="$ctrl.user.password" type="password">
             <span ng-show="$ctrl.inputPass === false" class="error"> please add correct password</span>
         </div>
 
