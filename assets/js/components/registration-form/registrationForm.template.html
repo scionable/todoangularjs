@@ -1,31 +1,27 @@
 <div class="registration-form">
 
     <form name="registration-form" action="" ng-submit="">
-
         <div>
             <label for="#">Email</label>
-            <!-- ng-change=" $ctrl.validation($ctrl.user.email, 'email')" -->
-            <input name="email" ng-model="$ctrl.user.email" type="email">
-            <span ng-show="$ctrl.inputEmail === false" class="error"> please add correct email</span>
+            <input name="email" ng-model="$ctrl.user.email" type="email" ng-pattern="/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/" required>
+            <span ng-show="registration-form.email.$error.pattern" class="error"> please add correct email</span>
         </div>
 
         <div>
             <label for="#">Name</label>
-            <!-- ng-change="$ctrl.validation($ctrl.user.name, 'name')" -->
-            <input name="name" ng-model="$ctrl.user.name" type="text">
-            <span ng-show="$ctrl.inputName === false" class="error"> please add correct name</span>
+            <input name="name" ng-model="$ctrl.user.name" ng-pattern="/^([а-яё]+|[a-z]+)$/i" type="text" required>
+            <span ng-show="registration-form.name.$error.pattern" class="error"> please add correct name</span>
         </div>
 
         <div>
             <label for="#">Password</label>
-            <!-- ng-change="$ctrl.validation($ctrl.user.password, 'password')" -->
-            <input name="password" ng-model="$ctrl.user.password" type="password">
-            <span ng-show="$ctrl.inputPass === false" class="error"> please add correct password</span>
+            <input name="password" ng-model="$ctrl.user.password" type="password" ng-pattern="/^[a-z0-9_-]{3,16}$/" required>
+            <span ng-show="registrationForm.password.$error.pattern" class="error"> please add correct password</span>
         </div>
 
-        <button type="submit" ng-click="$ctrl.registerUser($event)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register
+        <button type="submit" ng-click="$ctrl.registerUser($ctrl.user)" ng-disabled="registration-form.$invalid" class="btn register-btn">Register
         </button>
     </form>
-    <div ng-show="$ctrl.existUser" class="registration-form__exist">This user already exist. You need just Login ;)</div>
+    <div ng-show="registration-form.$invalid" class="registration-form__exist">This user already exist. You need just Login ;)</div>
 
 </div>
