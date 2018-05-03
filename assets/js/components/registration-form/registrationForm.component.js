@@ -7,28 +7,27 @@
   function registrationFormController(userService) {
     let $ctrl = this;
     $ctrl.registerUser = registerUser;
-    // $ctrl.validation = validation;
 
     $ctrl.user = {};
-
-    // $ctrl.regexName = /^([а-яё]+|[a-z]+)$/i;
-    // $ctrl.regexPass = /^[a-z0-9_-]{3,16}$/;
-    // $ctrl.regexEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
-
     $ctrl.existUser = false;
+    $ctrl.regexName = /^([а-яё]+|[a-z]+)$/i;
+    $ctrl.regexPass = /^[a-z0-9_-]{3,16}$/;
+    $ctrl.regexEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
+
+    function cleanInput() {
+      $ctrl.user.name = '';
+      $ctrl.user.email = '';
+      $ctrl.user.password = '';
+    }
 
     function registerUser(newUser) {
-      //   ev.preventDefault();
-
       userService
         .registerUser(newUser)
         .then(function(response) {
           if (typeof response.data === 'string') {
             $ctrl.existUser = true;
           }
-          $ctrl.user.name = '';
-          $ctrl.user.email = '';
-          $ctrl.user.password = '';
+          cleanInput();
         })
         .catch(function(err) {
           console.log('Error now is:', err);

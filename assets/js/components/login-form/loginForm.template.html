@@ -1,23 +1,23 @@
 <div class="login-form">
 
-	<form name="loginForm" action="" ng-submit="">
+    <form name="loginForm" action="" ng-submit="">
 
-		<div>
-			<label for="#">Email</label>
-			<input name="email" ng-model="$ctrl.user.email" type="email">
-		</div>
+        <div>
+            <label for="#">Email</label>
+            <input name="email" ng-model="$ctrl.user.email" ng-pattern="$ctrl.email" type="email">
+            <span ng-show="loginForm.email.$error.pattern" class="error"> please add correct email</span>
+        </div>
 
-		<div>
-			<label for="#">Password</label>
-			<input name="Password" ng-model="$ctrl.user.password" type="Password">
-		</div>
+        <div>
+            <label for="#">Password</label>
+            <input name="Password" ng-model="$ctrl.user.password" type="Password" ng-pattern="$ctrl.pass" required>
+            <span ng-show="loginForm.password.$error.pattern" class="error"> please add correct password</span>
+        </div>
 
-		<button
-			type="submit"
-			ng-click="$ctrl.loginUser($event, $ctrl.user)"
-			ng-disabled="loginForm.$invalid"
-			class="btn register-btn">Login
-		</button>
+        <button type="submit" ng-click=" $ctrl.loginUser($event,$ctrl.user)" ng-disabled="loginForm.$invalid" class="btn register-btn">Login
+        </button>
 
-	</form>
+    </form>
+
+    <div ng-show=" $ctrl.worning ">You need go to rgistration </div>
 </div>
