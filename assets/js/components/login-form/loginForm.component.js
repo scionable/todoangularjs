@@ -10,9 +10,9 @@
     $ctrl.email = userService.regexEmail;
     $ctrl.pass = userService.regexPass;
 
-    $ctrl.worning = false;
+    $ctrl.response = '';
 
-    function cleanInput() {
+    function clearForm() {
       $ctrl.user.name = '';
       $ctrl.user.email = '';
       $ctrl.user.password = '';
@@ -21,11 +21,10 @@
     function loginUser(ev, data) {
       ev.preventDefault();
       userService.loginUser(data).then(function(response) {
-        console.log('resp', response);
         if (typeof response.data === 'string') {
-          $ctrl.worning = true;
+          $ctrl.response = response.data;
         }
-        cleanInput();
+        clearForm();
       });
     }
   }

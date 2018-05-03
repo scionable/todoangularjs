@@ -1,20 +1,20 @@
 (function() {
   angular.module('todoApp').component('registrationForm', {
     templateUrl: 'js/components/registration-form/registrationForm.template.html',
-    controller: ('registrationFormController', ['userService', registrationFormController])
+    controller: ('registrationFormController', ['userService', '$timeout', registrationFormController])
   });
 
-  function registrationFormController(userService) {
+  function registrationFormController(userService, $timeout) {
     let $ctrl = this;
     $ctrl.registerUser = registerUser;
 
     $ctrl.user = {};
-    $ctrl.existUser = false;
-    $ctrl.regexName = /^([а-яё]+|[a-z]+)$/i;
-    $ctrl.regexPass = /^[a-z0-9_-]{3,16}$/;
-    $ctrl.regexEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
+    $ctrl.response = '';
+    $ctrl.name = userService.regexName;
+    $ctrl.pass = userService.regexPass;
+    $ctrl.email = userService.regexEmail;
 
-    function cleanInput() {
+    function clearForm() {
       $ctrl.user.name = '';
       $ctrl.user.email = '';
       $ctrl.user.password = '';
@@ -25,9 +25,12 @@
         .registerUser(newUser)
         .then(function(response) {
           if (typeof response.data === 'string') {
-            $ctrl.existUser = true;
+            $ctrl.response = response.data;
+            $timeout(function() {
+              $ctrl.response = '';
+            }, 3000);
           }
-          cleanInput();
+          clearForm();
         })
         .catch(function(err) {
           console.log('Error now is:', err);
