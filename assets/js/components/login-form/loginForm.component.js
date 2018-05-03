@@ -1,10 +1,10 @@
 (function() {
   angular.module('todoApp').component('loginForm', {
     templateUrl: 'js/components/login-form/loginForm.template.html',
-    controller: ('loginFormController', ['userService', '$scope', loginFormController])
+    controller: ('loginFormController', ['userService', '$timeout', loginFormController])
   });
 
-  function loginFormController(userService, $scope) {
+  function loginFormController(userService, $timeout) {
     let $ctrl = this;
     $ctrl.loginUser = loginUser;
     $ctrl.email = userService.regexEmail;
@@ -24,6 +24,9 @@
         if (typeof response.data === 'string') {
           $ctrl.response = response.data;
         }
+        $timeout(function() {
+          $ctrl.response = '';
+        }, 3000);
         clearForm();
       });
     }
