@@ -1,27 +1,28 @@
 <div class="registration-form">
 
-    <form name="registrationForm" action="" ng-submit="">
-        <div>
-            <label for="#">Email</label>
-            <input name="email" ng-model="$ctrl.user.email" type="email" ng-pattern="$ctrl.email" required>
-            <span ng-show="registrationForm.email.$error.pattern" class="error"> please add correct email</span>
-        </div>
+	<form name="registrationForm" action="" ng-submit="">
+		<div>
+			<label for="#">Email</label>
+			<input name="email" ng-model="$ctrl.user.email" type="email" ng-pattern="$ctrl.email" required>
+			<span ng-show="registrationForm.email.$error.pattern" class="error"> please add correct email</span>
+		</div>
 
-        <div>
-            <label for="#">Name</label>
-            <input name="name" ng-model="$ctrl.user.name" ng-pattern=" $ctrl.name " ype="text" required>
-            <span ng-show="registrationForm.name.$error.pattern" class="error"> please add correct name</span>
-        </div>
+		<div>
+			<label for="#">Name</label>
+			<input name="name" ng-model="$ctrl.user.name" ng-pattern=" $ctrl.name " ype="text" required>
+			<span ng-show="registrationForm.name.$error.pattern" class="error"> please add correct name</span>
+		</div>
 
-        <div>
-            <label for="#">Password</label>
-            <input name="password" ng-model="$ctrl.user.password" type="password" ng-pattern="$ctrl.pass" required>
-            <span ng-show="registrationForm.password.$error.pattern" class="error"> please add correct password</span>
-        </div>
+		<div>
+			<label for="#">Password</label>
+			<input name="password" ng-model="$ctrl.user.password" type="password" ng-pattern="$ctrl.pass" required>
+			<span ng-show="registrationForm.password.$error.pattern" class="error"> please add correct password</span>
+		</div>
 
-        <button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register
-        </button>
-    </form>
-    <div class="registration-form__exist">{{ $ctrl.errorMessage}}</div>
+		<button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="registrationForm.$invalid"
+		        class="btn register-btn">Register
+		</button>
+	</form>
+	<div class="registration-form__exist">{{ $ctrl.errorMessage}}</div>
 
 </div>
