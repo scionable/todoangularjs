@@ -19,9 +19,9 @@
             <span ng-show="registrationForm.password.$error.pattern" class="error"> please add correct password</span>
         </div>
 
-        <button type="submit" ng-click="$ctrl.registerUser($ctrl.user)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register
+        <button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register
         </button>
     </form>
-    <div class="registration-form__exist">{{$ctrl.response}}</div>
+    <div class="registration-form__exist">{{ $ctrl.errorMessage}}</div>
 
 </div>

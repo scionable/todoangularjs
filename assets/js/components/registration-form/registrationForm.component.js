@@ -1,18 +1,18 @@
 (function() {
   angular.module('todoApp').component('registrationForm', {
     templateUrl: 'js/components/registration-form/registrationForm.template.html',
-    controller: ('registrationFormController', ['userService', '$timeout', registrationFormController])
+    controller: ('registrationFormController', ['userService', '$timeout', '$rootScope', '$state', registrationFormController])
   });
 
-  function registrationFormController(userService, $timeout) {
+  function registrationFormController(userService, $timeout, $rootScope, $state) {
     let $ctrl = this;
     $ctrl.registerUser = registerUser;
 
-    $ctrl.user = {};
-    $ctrl.response = '';
     $ctrl.name = userService.regexName;
     $ctrl.pass = userService.regexPass;
     $ctrl.email = userService.regexEmail;
+
+    $ctrl.errorMessage = '';
 
     function clearForm() {
       $ctrl.user.name = '';
@@ -20,16 +20,22 @@
       $ctrl.user.password = '';
     }
 
-    function registerUser(newUser) {
+    function registerUser(ev, newUser) {
+      ev.preventDefault();
       userService
         .registerUser(newUser)
+
         .then(function(response) {
           if (typeof response.data === 'string') {
-            $ctrl.response = response.data;
+            $ctrl.errorMessage = response.data;
             $timeout(function() {
-              $ctrl.response = '';
+              $ctrl.errorMessage = '';
             }, 3000);
+          } else {
+            $rootScope.user = response.data;
+            $state.go('home');
           }
+
           clearForm();
         })
         .catch(function(err) {

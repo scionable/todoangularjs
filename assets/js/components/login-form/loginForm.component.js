@@ -1,16 +1,16 @@
 (function() {
   angular.module('todoApp').component('loginForm', {
     templateUrl: 'js/components/login-form/loginForm.template.html',
-    controller: ('loginFormController', ['userService', '$timeout', loginFormController])
+    controller: ('loginFormController', ['userService', '$timeout', '$rootScope', '$state', loginFormController])
   });
 
-  function loginFormController(userService, $timeout) {
+  function loginFormController(userService, $timeout, $rootScope, $state) {
     let $ctrl = this;
     $ctrl.loginUser = loginUser;
     $ctrl.email = userService.regexEmail;
     $ctrl.pass = userService.regexPass;
 
-    $ctrl.response = '';
+    $ctrl.errorMessage = '';
 
     function clearForm() {
       $ctrl.user.name = '';
@@ -22,11 +22,15 @@
       ev.preventDefault();
       userService.loginUser(data).then(function(response) {
         if (typeof response.data === 'string') {
-          $ctrl.response = response.data;
+          $ctrl.errorMessage = response.data;
+          $timeout(function() {
+            $ctrl.errorMessage = '';
+          }, 3000);
+        } else {
+          $rootScope.user = response.data;
+          $state.go('home');
         }
-        $timeout(function() {
-          $ctrl.response = '';
-        }, 3000);
+
         clearForm();
       });
     }
