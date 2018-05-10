@@ -1,0 +1,25 @@
+<h2 class="title">Your Settings</h2>
+
+<form class="formCabinet">
+    <div class=" form-block">
+        <p>NickName</p>
+        <input id="nickName" type="text" name="nickName" ng-model="$ctrl.user.nickName" ng-pattern="$ctrl.nickName">
+        <span ng-show="formCabinet.nickName.$error.pattern" class="error"> please add correct nickName</span>
+    </div>
+
+    <div class=" form-block">
+        <p>Profile picture</p>
+        <input id="picture" type="text" ng-model="$ctrl.user.picture" placeholder="url or profile picture">
+    </div>
+
+    <div class="form-block">
+        <p>Short bio about you</p>
+        <textarea rows="12 " cols="12"></textarea>
+    </div>
+    <div class="form-block">
+        <p>Change password</p>
+        <input id="new" placeholder="new password" name="password" ng-model="$ctrl.user.password" type="password" ng-pattern="$ctrl.pass" required>
+        <span ng-show="formCabinet.password.$error.pattern" class="error"> please add correct password</span>
+    </div>
+    <button class="btn"> Update Settings</button>
+</form>

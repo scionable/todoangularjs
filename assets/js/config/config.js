@@ -11,9 +11,10 @@
           url: '/',
           component: 'homePage'
         })
-        .state('contacts', {
-          url: '/contacts',
-          template: '<h3>contacts!</h3>'
+        .state('userCabinet', {
+          url: '/userCabinet',
+          component: 'userCabinet'
+          // template: '<h3>contacts!</h3>'
         })
         .state('task-list', {
           url: '/taskList',

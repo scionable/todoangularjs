@@ -7,6 +7,6 @@
   function MenuComponent() {
     var $ctrl = this;
 
-    $ctrl.menuLinks = [{ sref: 'home', text: 'Home' }, { sref: 'contacts', text: 'Contacts' }, { sref: 'task-list', text: 'Task-list' }, { sref: 'auth', text: 'Login / Registration' }];
+    $ctrl.menuLinks = [{ sref: 'home', text: 'Home' }, { sref: 'userCabinet', text: 'Cabinet' }, { sref: 'task-list', text: 'Task-list' }, { sref: 'auth', text: 'Login / Registration' }];
   }
 })();

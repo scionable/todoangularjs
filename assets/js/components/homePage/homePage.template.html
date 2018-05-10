@@ -1,11 +1,12 @@
 <div class="home-page">
-	<h2>Hello User!</h2>
-	<div>
-		<p>Information:</p>
-		<ul>
-			<li>Name:{{$ctrl.user.name}}</li>
-			<li>Email:{{$ctrl.user.email}}</li>
-			<li>Tasks:{{$ctrl.user._id}}</li>
-		</ul>
-	</div>
+    <h2>Hello User!</h2>
+    <div>
+        <p>Information:</p>
+        <ul>
+            <li>Name:{{$ctrl.user.name}}</li>
+            <li>Email:{{$ctrl.user.email}}</li>
+            <li>Tasks:{{$ctrl.user._id}}</li>
+        </ul>
+    </div>
+    <button ng-show="$ctrl.user" class="btn" ng-click="$ctrl.logoutUser()">Logout</button>
 </div>

@@ -7,6 +7,11 @@ body {
     padding: 0;
 }
 
+.title {
+    font: 30px/35px Arial;
+    text-align: center;
+}
+
 menu {
     padding: 0;
 }
@@ -88,4 +93,25 @@ nav ul a.active {
     margin: 50px auto;
     color: #ee6e73;
     font-weight: 600;
+}
+
+.form-block {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.form-block p {
+    position: relative;
+    width: 35%;
+}
+
+.form-block input {
+    width: 50%;
+}
+
+.form-block textarea {}
+
+#password,
+#new {
+    width: 100%;
 }

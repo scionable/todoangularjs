@@ -10,4 +10,5 @@
 
 > After all this steps you need running mongodb, when you did it next your step it
 
+* .\mongod --dbpath D:\... // " D:\AngularJS\server -this is your way to folder"
 * nodemon server.js
