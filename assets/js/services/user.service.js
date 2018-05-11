@@ -1,7 +1,7 @@
 (function() {
-  angular.module('todoApp').service('userService', ['$http', 'session', userService]);
+  angular.module('todoApp').service('userService', ['$http', '$window', userService]);
 
-  function userService($http, session) {
+  function userService($http, $window) {
     var service = {
       registerUser: registerUser,
       loginUser: loginUser,
@@ -20,20 +20,16 @@
     }
 
     function loginUser(data) {
-      return $http.post('/login', data).then(function(resp) {
-        console.log('resp', resp);
-        session.create(resp.data);
-        return resp;
-      });
+      return $http.post('/login', data);
     }
 
     function saveTolocalStorage(user) {
       var serialUser = JSON.stringify(user);
-      localStorage.setItem('user-token', serialUser);
+      $window.localStorage.setItem('user-token', serialUser);
     }
 
     function getUserFromlocalStorage() {
-      return JSON.parse(localStorage.getItem('user-token'));
+      return JSON.parse($window.localStorage.getItem('user-token'));
     }
 
     function userLogout() {
