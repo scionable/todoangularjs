@@ -9,17 +9,20 @@
 
     <div class=" form-block">
         <p>Profile picture</p>
-        <input id="picture" type="text" ng-model="$ctrl.user.picture" placeholder="url or profile picture">
+        <span>{{$ctrl.nameImg}}</span>
+        <input id="picture" type="file" ng-model="files" file-model="files" placeholder="url or profile picture" accept="image/* ">
+        <img ng-src="{{src}}">
+
     </div>
 
-    <div class="form-block">
+    <div class=" form-block ">
         <p>Short bio about you</p>
-        <textarea rows="12 " cols="12"></textarea>
+        <textarea rows="12 " cols="12 " ng-model="$ctrl.user.bio "></textarea>
     </div>
-    <div class="form-block">
+    <div class="form-block ">
         <p>Change password</p>
-        <input id="new" placeholder="new password" name="password" ng-model="$ctrl.user.password" type="password" ng-pattern="$ctrl.pass" required>
-        <span ng-show="formCabinet.password.$error.pattern" class="error"> please add correct password</span>
+        <input id="new " placeholder="new password " name="password " ng-model="$ctrl.user.password " type="password " ng-pattern="$ctrl.pass " required>
+        <span ng-show="formCabinet.password.$error.pattern " class="error "> please add correct password</span>
     </div>
-    <button class="btn"> Update Settings</button>
+    <button class="btn " ng-click="$ctrl.addAdditionalInfo($event, $ctrl.user) "> Update Settings</button>
 </form>

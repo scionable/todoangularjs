@@ -8,6 +8,7 @@
       saveTolocalStorage: saveTolocalStorage,
       getUserFromlocalStorage: getUserFromlocalStorage,
       userLogout: userLogout,
+      fileUpload: fileUpload,
       regexName: /^([а-яё]+|[a-z]+)$/i,
       regexPass: /^[a-z0-9_-]{3,16}$/,
       regexEmail: /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/
@@ -34,6 +35,22 @@
 
     function userLogout() {
       return localStorage.removeItem('user-token');
+    }
+    function fileUpload() {
+      return (this.uploadFileToUrl = function(file, uploadUrl) {
+        var fd = new FormData();
+        fd.append('file', file);
+
+        $http
+          .post(uploadUrl, fd, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+          })
+
+          .success(function() {})
+
+          .error(function() {});
+      });
     }
   }
 })();
