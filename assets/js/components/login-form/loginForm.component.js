@@ -19,7 +19,6 @@
             $ctrl.errorMessage = response.data;
             helperService.hideErrorMessage($ctrl.errorMessage);
           } else {
-            userService.saveTolocalStorage(response.data);
             $state.go('home');
           }
           return response.data;

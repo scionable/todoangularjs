@@ -3,8 +3,6 @@
 
   function fileModel($parse) {
     var directive = {
-      restrict: 'A',
-      templateUrl: 'js/components/userCabinet/userCabinet.temlate.html',
       link: link
     };
     return directive;

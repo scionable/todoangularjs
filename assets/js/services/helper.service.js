@@ -18,7 +18,7 @@
       var mess = message;
       $timeout(function() {
         mess = '';
-      }, 1000);
+      }, 2000);
     }
   }
 })();

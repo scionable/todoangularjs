@@ -16,13 +16,11 @@
       ev.preventDefault();
       userService
         .registerUser(newUser)
-
         .then(function(response) {
           if (typeof response.data === 'string') {
             $ctrl.errorMessage = response.data;
             helperService.hideErrorMessage($ctrl.errorMessage);
           } else {
-            userService.saveTolocalStorage(response.data);
             $state.go('home');
           }
 
