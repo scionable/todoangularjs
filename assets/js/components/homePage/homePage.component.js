@@ -7,7 +7,6 @@
   function homePageController(userService) {
     let $ctrl = this;
     $ctrl.logoutUser = logoutUser;
-    console.log('userService.user', userService);
     $ctrl.user = Object.assign({}, userService.user);
 
     function logoutUser() {

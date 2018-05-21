@@ -37,7 +37,6 @@
           saveUser(response.data);
           service.user = getUserFromlocalStorage();
           $rootScope.user = service.user;
-          console.log('$rootScope', $rootScope);
         }
         return response;
       });
