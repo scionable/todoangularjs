@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "angular-modal-service": "^0.13.0",
+    "angular-toastr": "^2.1.1",
     "angularjs-file-model": "^1.0.4",
     "body-parser": "^1.18.2",
     "express": "~4.7.2",

@@ -1,6 +1,8 @@
 (function() {
-  angular.module('todoApp').controller('rootController', function rootController(userService) {
-    let $ctrl = this;
-    console.log(' userService root', userService.user);
-  });
+  angular.module('todoApp').controller('rootController', [
+    '$scope',
+    function($scope) {
+      console.log('$scope', $scope);
+    }
+  ]);
 })();

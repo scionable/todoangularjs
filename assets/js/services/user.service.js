@@ -1,7 +1,7 @@
 (function() {
-  angular.module('todoApp').service('userService', ['$http', '$window', userService]);
+  angular.module('todoApp').service('userService', ['$http', '$window', '$rootScope', userService]);
 
-  function userService($http, $window) {
+  function userService($http, $window, $rootScope) {
     var service = {
       user: null,
       registerUser: registerUser,
@@ -36,6 +36,8 @@
         if (typeof response.data !== 'string') {
           saveUser(response.data);
           service.user = getUserFromlocalStorage();
+          $rootScope.user = service.user;
+          console.log('$rootScope', $rootScope);
         }
         return response;
       });
