@@ -1,10 +1,16 @@
 (function() {
-  angular.module('todoApp').controller('popupController', ['$scope', 'close', popupController]);
+  angular.module('todoApp').controller('popupController', ['popupService', '$scope', '$state', popupController]);
 
-  function popupController($scope, close) {
+  function popupController(popupService, $scope, $state, close) {
     let $ctrl = this;
-    $scope.close = function(result) {
-      close(result, 500); // close, but give 500ms for bootstrap to animate
+
+    $scope.close = function() {
+      popupService.closePopup();
+      //$state.go('home');
+    };
+
+    $scope.cancel = function() {
+      popupService.hidePopup();
     };
   }
 })();

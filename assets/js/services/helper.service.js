@@ -9,13 +9,13 @@
     return helperService;
 
     function clearForm(user) {
-      user.name = '';
-      user.email = '';
-      user.password = '';
+      for (let key in user) {
+        user[key] = '';
+      }
     }
 
     function hideErrorMessage(message) {
-      var mess = message;
+      let mess = message;
       $timeout(function() {
         mess = '';
       }, 2000);

@@ -144,3 +144,8 @@ nav ul a.active {
     border: none;
     border-bottom: 1px solid gray;
 }
+
+.modal {
+    display: block;
+    top: 30%;
+}
