@@ -14,7 +14,6 @@
 				.state('userCabinet', {
 					url: '/userCabinet',
 					component: 'userCabinet'
-					// template: '<h3>contacts!</h3>'
 				})
 				.state('task-list', {
 					url: '/taskList',
@@ -36,4 +35,9 @@
 				});
 		}
 	]);
+
+	angular.module('todoApp').run(['userService', function (userService) {
+		userService.user = userService.getUserFromlocalStorage() || null;
+	}])
+
 })();
