@@ -1,14 +1,14 @@
-(function() {
-  angular.module('todoApp').service('taskService', ['$http', taskService]);
+(function () {
+	angular.module('todoApp').service('taskService', ['$http', taskService]);
 
-  function taskService($http) {
-    var service = {
-      addTask: addTask,
-      getAllTasks: getAllTasks,
-      deleteTask: deleteTask,
-      changeTaskDone: changeTaskDone
-    };
-    return service;
+	function taskService($http) {
+		var service = {
+			addTask: addTask,
+			getAllTasks: getAllTasks,
+			deleteTask: deleteTask,
+			changeTaskDone: changeTaskDone
+		};
+		return service;
 
 		var service = {
 			addTask: addTask,
@@ -26,8 +26,9 @@
 		function addTask(data) {
 			return $http.post('createTask', data)
 		}
+
 		function deleteTask(id) {
-			return $http.delete('/tasks/'+id);
+			return $http.delete('/tasks/' + id);
 		}
 
 		function changeTaskDone(data) {

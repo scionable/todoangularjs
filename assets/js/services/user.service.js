@@ -6,8 +6,9 @@
 		var service = {
 			registerUser: registerUser,
 			loginUser: loginUser,
-			getUserFromlocalStorage: getUserFromlocalStorage,
 			userLogout: userLogout,
+			updateUserInfo: updateUserInfo,
+			getUserFromlocalStorage: getUserFromlocalStorage,
 			additionalInfoUser: additionalInfoUser,
 			regexName: /^([а-яё]+|[a-z]+)$/i,
 			regexPass: /^[a-z0-9_-]{3,16}$/,
@@ -17,20 +18,23 @@
 		return service;
 
 		function registerUser(data) {
-			return $http.post('/registerUser', data).then(function (response) {
-				if (typeof response.data !== 'string') {
-					saveUser(response.data);
-					service.user = response.data;
-				}
-				return response;
-			});
+			return $http.post('/registerUser', data)
+				.then(function (resp) {
+					if (!(typeof resp.data !== 'string')) return $q.reject(resp.data);
+					setUserToLocalStorage(resp.data);
+					service.user = resp.data;
+				}).then(function () {
+					$rootScope.$broadcast('user-login', {user: service.user});
+				}).then(function () {
+					return $q.resolve('You successfully registered');
+				});
 		}
 
 		function loginUser(data) {
 			return $http.post('/login', data)
 				.then(function (resp) {
 					if (!(typeof resp.data !== 'string')) return $q.reject(resp.data);
-					saveUser(resp.data);
+					setUserToLocalStorage(resp.data);
 					service.user = resp.data;
 				}).then(function () {
 					$rootScope.$broadcast('user-login', {user: service.user});
@@ -39,7 +43,18 @@
 				})
 		}
 
-		function saveUser(user) {
+		function updateUserInfo(data) {
+			return $http.patch('/updateUserInfo', data)
+				.then(function (resp) {
+					if (!(typeof resp.data !== 'string')) return $q.reject(resp.data);
+					setUserToLocalStorage(resp.data);
+					service.user = resp.data;
+				}).then(function () {
+					return $q.resolve('User information successfully updated');
+				})
+		}
+
+		function setUserToLocalStorage(user) {
 			var serialUser = JSON.stringify(user);
 			$window.localStorage.setItem('user-token', serialUser);
 		}
@@ -56,7 +71,7 @@
 
 		function additionalInfoUser(user) {
 			service.user = Object.assign(service.user, user);
-			saveUser(service.user);
+			setUserToLocalStorage(service.user);
 		}
 
 	}
