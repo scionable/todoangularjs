@@ -1,1 +1,1 @@
-angular.module('todoApp', ['ui.router', 'angularModalService']);
+angular.module('todoApp', ['ui.router', 'angularModalService', 'naif.base64']);
