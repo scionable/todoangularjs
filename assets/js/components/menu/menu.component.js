@@ -8,7 +8,7 @@
 		var $ctrl = this;
 		$ctrl.menuLinks = [
 			{sref: 'home', text: 'Home'},
-			{sref: 'userCabinet', text: 'Cabinet'},
+			{sref: 'userProfile', text: 'Profile'},
 			{sref: 'task-list', text: 'Task-list'},
 			{sref: 'auth', text: 'Login / Registration'}
 		];

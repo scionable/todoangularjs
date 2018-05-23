@@ -1,0 +1,52 @@
+<div class="userProfile">
+
+	<form name="userProfile">
+
+		<div class="form-block">
+			<p>NickName</p>
+			<input
+					id="nickName"
+					type="text"
+					name="nickName"
+					ng-model="$ctrl.userAdditionalInfo.screenName"
+					placeholder="add your own nickName"
+			>
+		</div>
+
+		<div class="form-block">
+			<div class="logo-selector">
+				<label for="" class="input-wrapper__label">Choose logo</label>
+				<div class="wrapper">
+					<div class="avatar">
+						<img ng-src="data:image/png;base64,{{$ctrl.userAdditionalInfo.displayAvatar}}"/>
+					</div>
+					<input
+							class="input custom-input logo-selector"
+							type="file"
+							ng-model="$ctrl.userAdditionalInfo.avatar"
+							name="avatar"
+							onloadend="$ctrl.onAvatarChange"
+							base-sixty-four-input
+							allow-same-file="false"
+					>
+				</div>
+			</div>
+
+		</div>
+
+		<div class=" form-block ">
+			<p>About me</p>
+			<textarea
+					rows="12"
+					cols="12"
+					ng-model="$ctrl.userAdditionalInfo.aboutme"
+					placeholder="add short bio about you"
+			>
+			</textarea>
+		</div>
+
+		<button class="btn" ng-click="$ctrl.submit($ctrl.userAdditionalInfo) ">Save</button>
+
+	</form>
+
+</div>

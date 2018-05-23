@@ -11,9 +11,9 @@
 					url: '/',
 					component: 'homePage'
 				})
-				.state('userCabinet', {
-					url: '/userCabinet',
-					component: 'userCabinet'
+				.state('userProfile', {
+					url: '/userProfile',
+					component: 'userProfile'
 				})
 				.state('task-list', {
 					url: '/taskList',
