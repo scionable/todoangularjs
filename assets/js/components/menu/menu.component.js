@@ -6,6 +6,7 @@
 
 	function MenuComponent($scope, userService) {
 		var $ctrl = this;
+		$ctrl.user = userService.user;
 		$ctrl.menuLinks = [
 			{sref: 'home', text: 'Home'},
 			{sref: 'userProfile', text: 'Profile'},
@@ -14,13 +15,12 @@
 		];
 
 		$scope.$on('user-logout', function (event, args) {
-			$ctrl.user = args.user || 'Logo';
+			$ctrl.user = args.user;
 		});
 
 		$scope.$on('user-login', function(event, args) {
-			$ctrl.user = args.user.name;
+			$ctrl.user = args.user;
 		});
 
-		$ctrl.user = userService.user ? userService.user.name : 'Logo';
 	}
 })();

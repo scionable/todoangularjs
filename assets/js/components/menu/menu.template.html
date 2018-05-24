@@ -1,7 +1,12 @@
 <nav>
 	<div class="nav-wrapper">
 
-		<a ui-sref="home" class="brand-logo right">{{$ctrl.user}}</a>
+		<div class="avatar-block right">
+			<div class="avatar">
+				<img ng-show="$ctrl.user.avatar" ng-src="data:image/png;base64,{{$ctrl.user.avatar}}" alt="avatar">
+			</div>
+			<a ui-sref="home" class="brand-logo">{{$ctrl.user.name || 'Logo'}}</a>
+		</div>
 
 		<ul id="nav-mobile" class="left hide-on-med-and-down">
 
