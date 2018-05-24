@@ -1,46 +1,65 @@
 <div class="userProfile">
 
-	<form name="userProfile">
+	<form class="profile-form" name="userProfile">
 
 		<div class="form-block">
-			<p>NickName</p>
+			<div class="avatar-selector">
+				<label for="" class="input-wrapper__label">Choose Avatar</label>
+				<div class="wrapper">
+					<div class="avatar">
+						<img ng-src="data:image/png;base64,{{$ctrl.displayAvatar}}" alt="avatar"/>
+					</div>
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>File</span>
+							<input type="file">
+						</div>
+						<div class="file-path-wrapper">
+							<input
+								class="file-path validate input custom-input logo-selector"
+								type="file"
+								ng-model="$ctrl.userAdditionalInfo.avatar"
+								name="avatar"
+								onloadend="$ctrl.onAvatarChange"
+								base-sixty-four-input
+								allow-same-file="false"
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-block">
+			<label class="input-wrapper__label">Name</label>
 			<input
-					id="nickName"
+					id="name"
 					type="text"
-					name="nickName"
-					ng-model="$ctrl.userAdditionalInfo.screenName"
-					placeholder="add your own nickName"
+					name="name"
+					ng-model="$ctrl.userAdditionalInfo.name"
+					placeholder="Name"
 			>
 		</div>
 
 		<div class="form-block">
-			<div class="logo-selector">
-				<label for="" class="input-wrapper__label">Choose logo</label>
-				<div class="wrapper">
-					<div class="avatar">
-						<img ng-src="data:image/png;base64,{{$ctrl.userAdditionalInfo.displayAvatar}}"/>
-					</div>
-					<input
-							class="input custom-input logo-selector"
-							type="file"
-							ng-model="$ctrl.userAdditionalInfo.avatar"
-							name="avatar"
-							onloadend="$ctrl.onAvatarChange"
-							base-sixty-four-input
-							allow-same-file="false"
-					>
-				</div>
-			</div>
-
+			<label class="input-wrapper__label">Screen name</label>
+			<input
+				id="screenName"
+				type="text"
+				name="screenName"
+				ng-model="$ctrl.userAdditionalInfo.screenName"
+				placeholder="Screen name"
+			>
 		</div>
 
-		<div class=" form-block ">
-			<p>About me</p>
+		<div class="form-block ">
+			<label class="input-wrapper__label">About me</label>
 			<textarea
-					rows="12"
-					cols="12"
-					ng-model="$ctrl.userAdditionalInfo.aboutme"
-					placeholder="add short bio about you"
+				class="materialize-textarea"
+				rows="12"
+				cols="12"
+				ng-model="$ctrl.userAdditionalInfo.aboutme"
+				placeholder="About me"
 			>
 			</textarea>
 		</div>
