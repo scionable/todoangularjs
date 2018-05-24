@@ -10,5 +10,9 @@ module.exports = function (app) {
 		UserController.login(req, res);
 	});
 
+	app.patch('/updateUserInfo', (req, res) => {
+		UserController.updateUserInfo(req, res);
+	});
+
 };
 

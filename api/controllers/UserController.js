@@ -2,7 +2,8 @@ let User = require('../models/User');
 
 module.exports = {
 	register: register,
-	login: login
+	login: login,
+	updateUserInfo: updateUserInfo
 };
 
 function register(req, res) {
@@ -33,3 +34,24 @@ function login(req, res) {
 		user ? res.send(user) : res.send(`Wrong credentials`);
 	});
 }
+
+
+function updateUserInfo(req, res) {
+	const {aboutme, displayAvatar: avatar, screenName, name} = req.body;
+	User.findOneAndUpdate(
+		{_id: req.body.id},
+		{
+			$set: {
+				aboutme: aboutme,
+				avatar: avatar,
+				screenName: screenName,
+				name: name
+			}
+		},
+		{new: true}, (err, user) => {
+			if (err) res.send(err);
+			res.send(user);
+		});
+
+}
+
