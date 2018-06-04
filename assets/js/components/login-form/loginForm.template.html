@@ -14,11 +14,8 @@
 			<span ng-show="loginForm.password.$error.pattern" class="error"> please add correct password</span>
 		</div>
 
-		<button type="submit" ng-click=" $ctrl.loginUser($event,$ctrl.user)" ng-disabled="loginForm.$invalid"
-		        class="btn register-btn">Login
+		<button type="submit" ng-click=" $ctrl.loginUser($event,$ctrl.user)" ng-disabled="loginForm.$invalid" class="btn register-btn">Login
 		</button>
 
 	</form>
-
-	<div class="error">{{$ctrl.errorMessage}}</div>
 </div>

@@ -9,7 +9,10 @@
   "homepage": "",
   "dependencies": {
     "angular": "^1.6.10",
-    "angular-ui-router": "^1.0.15"
+    "angular-ui-router": "^1.0.15",
+    "angular-modal-service": "^0.13.0",
+    "angular-base64-upload": "^0.1.23",
+    "angular-toastr": "^2.1.1"
   },
   "ignore": [
     "**/.*",
