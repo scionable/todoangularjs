@@ -8,20 +8,25 @@
   function userProfileController($rootScope, userService) {
     let $ctrl = this;
     $ctrl.user = userService.user;
-    if ($ctrl.user == null) {
+
+    if ($ctrl.user === null) {
+      $ctrl.displayAvatar = "";
+      $ctrl.exist = true;
+    } else {
+      $ctrl.exist = false;
+      $ctrl.displayAvatar = $ctrl.user.avatar;
+
+      $ctrl.userAdditionalInfo = {
+        displayAvatar: $ctrl.user.avatar,
+        aboutme: $ctrl.user.aboutme,
+        name: $ctrl.user.name,
+        screenName: $ctrl.user.screenName,
+        id: $ctrl.user._id
+      };
     }
-    $ctrl.displayAvatar = $ctrl.user.avatar;
 
     $ctrl.onAvatarChange = onAvatarChange;
     $ctrl.submit = submit;
-
-    $ctrl.userAdditionalInfo = {
-      displayAvatar: $ctrl.user.avatar,
-      aboutme: $ctrl.user.aboutme,
-      name: $ctrl.user.name,
-      screenName: $ctrl.user.screenName,
-      id: $ctrl.user._id
-    };
 
     function onAvatarChange(event) {
       $ctrl.displayAvatar = $ctrl.userAdditionalInfo.displayAvatar =
@@ -34,9 +39,7 @@
         "userAvatarUpdated",
         $ctrl.userAdditionalInfo.displayAvatar
       );
-      userService.updateUserInfo(userAdditionalInfo).then(function(resp) {
-        console.log(resp);
-      });
+      userService.updateUserInfo(userAdditionalInfo).then(function(resp) {});
     }
   }
 })();

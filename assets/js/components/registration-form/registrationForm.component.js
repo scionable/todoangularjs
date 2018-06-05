@@ -24,10 +24,10 @@
   ) {
     let $ctrl = this;
     $ctrl.registerUser = registerUser;
-
     $ctrl.name = userService.regexName;
     $ctrl.pass = userService.regexPass;
     $ctrl.email = userService.regexEmail;
+    $ctrl.dublePass = userService.regexPass;
 
     function registerUser(ev, newUser) {
       ev.preventDefault();
