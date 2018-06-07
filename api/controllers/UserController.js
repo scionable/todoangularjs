@@ -1,4 +1,5 @@
 let User = require('../models/User');
+let imageService = require('../services/imageService');
 
 module.exports = {
 	register: register,
@@ -16,7 +17,15 @@ function register(req, res) {
 		if (user) {
 			res.send(`User with this email already exist`);
 		} else {
-			User.create({name: name, email: email, password: password}, (err, user) => {
+			User.create(
+				{
+					name: name,
+					email: email,
+					password: password,
+					aboutme: '',
+					avatar: imageService.setDefaultAvatar(name),
+					screenName: `@${name.toLocaleLowerCase()}`
+				}, (err, user) => {
 					if (err) res.send(err);
 					res.json(user);
 				}
@@ -34,7 +43,6 @@ function login(req, res) {
 		user ? res.send(user) : res.send(`Wrong credentials`);
 	});
 }
-
 
 function updateUserInfo(req, res) {
 	const {aboutme, displayAvatar: avatar, screenName, name} = req.body;
@@ -54,4 +62,3 @@ function updateUserInfo(req, res) {
 		});
 
 }
-
