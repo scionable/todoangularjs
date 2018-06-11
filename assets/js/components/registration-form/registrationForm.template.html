@@ -21,13 +21,13 @@
 
 		<div>
 			<label for="#">Confirm password</label>
-			<input name="password" ng-model="$ctrl.user.dublePass" type="password" ng-pattern="$ctrl.dublePass" required>
-			<span ng-show="registrationForm.password.$error.pattern" class="error"> password do not match</span>
+			<input name="password" ng-model="$ctrl.user.confirmPassword" type="password" required>
+			<span ng-show="$ctrl.user.password !== $ctrl.user.confirmPassword" class="error"> passwords do not match</span>
 		</div>
 
-		<button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="registrationForm.$invalid" class="btn register-btn">Register
+		<button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="$ctrl.user.password !== $ctrl.user.confirmPassword || registrationForm.$invalid"
+		 class="btn register-btn">Register
 		</button>
 	</form>
-	<div class="registration-form__exist">{{ $ctrl.errorMessage}}</div>
-
+	<div class="registration-form__exist">{{$ctrl.errorMessage}}</div>
 </div>

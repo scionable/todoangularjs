@@ -1,20 +1,25 @@
-(function () {
-	angular.module('todoApp').component('homePage', {
-		templateUrl: 'js/components/homePage/homePage.template.html',
-		controller: ('homePageController', ['$scope', 'userService', homePageController])
-	});
+"use strict";
+(function() {
+  angular.module("todoApp").component("homePage", {
+    templateUrl: "js/components/homePage/homePage.template.html",
+    controller: ("homePageController", homePageController),
+    controllerAs: "homeCtrl"
+  });
 
-	function homePageController($scope, userService) {
-		let $ctrl = this;
-		$ctrl.user = userService.user;
-		$ctrl.logoutUser = logoutUser;
+  homePageController.$inject = ["$scope", "userService"];
 
-		$scope.$on('user-logout', function(event, args) {
-			$ctrl.user = args.user;
-		});
+  function homePageController($scope, userService) {
+    console.log("$scope", $scope);
+    let $ctrl = this;
+    $ctrl.user = userService.user;
+    $ctrl.logoutUser = logoutUser;
 
-		function logoutUser() {
-			userService.userLogout();
-		}
-	}
+    $scope.$on("user-logout", function(event, args) {
+      $ctrl.user = args.user;
+    });
+
+    function logoutUser() {
+      userService.userLogout();
+    }
+  }
 })();

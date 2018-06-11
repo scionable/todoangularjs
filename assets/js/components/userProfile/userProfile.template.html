@@ -6,10 +6,10 @@
 			<div class="avatar-selector">
 				<label for="" class="input-wrapper__label">Choose Avatar</label>
 				<div class="wrapper">
-					<div class="avatar" ng-show="!$ctrl.exist">
-						<img ng-src="data:image/png;base64,{{$ctrl.displayAvatar!==null}}" alt="avatar" />
+					<div class="avatar">
+						<img ng-src="data:image/png;base64,{{$ctrl.displayAvatar}}" alt="avatar" />
 					</div>
-					<div class="file-field input-field" ng-show="!$ctrl.exist">
+					<div class="file-field input-field">
 						<div class="btn">
 							<span>File</span>
 							<input type="file">
@@ -39,7 +39,7 @@
 			</textarea>
 		</div>
 
-		<button class="btn" ng-click="$ctrl.submit($ctrl.userAdditionalInfo)" ng-disabled="$ctrl.exist">Save</button>
+		<button class="btn" ng-click="$ctrl.submit($ctrl.userAdditionalInfo)">Save</button>
 
 	</form>
 

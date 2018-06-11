@@ -2,28 +2,33 @@
   angular.module("todoApp").component("userProfile", {
     templateUrl: "js/components/userProfile/userProfile.template.html",
     controller: ("userProfileController",
-    ["$rootScope", "userService", userProfileController])
+    [
+      "$rootScope",
+      "userService",
+      "toastr",
+      "helperService",
+      userProfileController
+    ])
   });
 
-  function userProfileController($rootScope, userService) {
+  function userProfileController(
+    $rootScope,
+    userService,
+    toastr,
+    helperService
+  ) {
     let $ctrl = this;
     $ctrl.user = userService.user;
 
-    if ($ctrl.user === null) {
-      $ctrl.displayAvatar = "";
-      $ctrl.exist = true;
-    } else {
-      $ctrl.exist = false;
-      $ctrl.displayAvatar = $ctrl.user.avatar;
+    $ctrl.displayAvatar = $ctrl.user.avatar;
 
-      $ctrl.userAdditionalInfo = {
-        displayAvatar: $ctrl.user.avatar,
-        aboutme: $ctrl.user.aboutme,
-        name: $ctrl.user.name,
-        screenName: $ctrl.user.screenName,
-        id: $ctrl.user._id
-      };
-    }
+    $ctrl.userAdditionalInfo = {
+      displayAvatar: $ctrl.user.avatar,
+      aboutme: $ctrl.user.aboutme,
+      name: $ctrl.user.name,
+      screenName: $ctrl.user.screenName,
+      id: $ctrl.user._id
+    };
 
     $ctrl.onAvatarChange = onAvatarChange;
     $ctrl.submit = submit;
@@ -39,7 +44,10 @@
         "userAvatarUpdated",
         $ctrl.userAdditionalInfo.displayAvatar
       );
-      userService.updateUserInfo(userAdditionalInfo).then(function(resp) {});
+      userService.updateUserInfo(userAdditionalInfo).then(function(resp) {
+        toastr.success(resp, "Success!");
+        helperService.clearForm(userAdditionalInfo);
+      });
     }
   }
 })();

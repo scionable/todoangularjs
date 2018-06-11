@@ -1,12 +1,12 @@
 <div class="home-page">
-	<h2>Hello {{$ctrl.user.name}}</h2>
+	<h2>Hello {{homeCtrl.user.name}}</h2>
 	<div>
 		<p>Information:</p>
 		<ul>
-			<li>Name:{{$ctrl.user.name}}</li>
-			<li>Email:{{$ctrl.user.email}}</li>
-			<li>Tasks:{{$ctrl.user._id}}</li>
+			<li>Name:{{homeCtrl.user.name}}</li>
+			<li>Email:{{homeCtrl.user.email}}</li>
+			<li>Tasks:{{homeCtrl.user._id}}</li>
 		</ul>
 	</div>
-	<button class="btn" ng-click="$ctrl.logoutUser()" ng-disabled="!$ctrl.user">Logout</button>
+	<button class="btn" ng-click="homeCtrl.logoutUser()" ng-disabled="!homeCtrl.user">Logout</button>
 </div>

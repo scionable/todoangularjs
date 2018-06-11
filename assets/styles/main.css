@@ -1,204 +1,222 @@
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .title {
-	font: 30px/35px Arial;
-	text-align: center;
+    font: 30px/35px Arial;
+    text-align: center;
 }
 
 menu {
-	padding: 0;
+    padding: 0;
 }
 
 nav ul a.active {
-	background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .tabs {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .tabs .tab {
-	width: 14%;
+    width: 14%;
 }
 
 .tabs .tab a {
-	padding: 0;
-	font-size: 10px;
-	font-weight: 700;
+    padding: 0;
+    font-size: 10px;
+    font-weight: 700;
 }
 
 .active {
-	background: #ee6e73;
+    background: #ee6e73;
 }
 
 .tabs .tab.active a {
-	color: white;
+    color: white;
 }
 
 .task {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
 }
 
 .task__text {
-	width: 100%;
-	color: #000;
+    width: 100%;
+    color: #000;
+    font: 16px/20px Arial;
+}
+
+.task__text .text {
+    margin: 0 20px;
+    min-width: 200px;
 }
 
 .fotm-registration {
-	max-width: 1000px;
+    max-width: 1000px;
 }
 
 .form-tab {
-	display: flex;
-	justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 .form-tab li a {
-	width: 100%;
-	display: block;
-	padding: 10px 20px;
-	color: #ee6e73;
-	text-transform: uppercase;
-	text-align: center;
+    width: 100%;
+    display: block;
+    padding: 10px 20px;
+    color: #ee6e73;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .form-tab li {
-	width: 50%;
-	box-sizing: border-box;
+    width: 50%;
+    box-sizing: border-box;
 }
 
 .form-tab li .active {
-	width: 100%;
-	background: #ee6e73;
-	color: white;
+    width: 100%;
+    background: #ee6e73;
+    color: white;
 }
 
 .error {
-	color: red;
+    color: red;
 }
 
-/*.registration-form__exist {*/
-/*margin: 50px auto;*/
-/*color: #ee6e73;*/
-/*font-weight: 600;*/
-/*}*/
+.todoInput {
+    display: flex;
+    margin-top: 50px;
+    max-width: 1200px;
+    justify-content: space-between;
+}
 
-/*.form-block {*/
-/*display: flex;*/
-/*margin-bottom: 40px;*/
-/*}*/
+.todoInput .time {
+    max-width: 250px;
+}
 
-/*.form-block p {*/
-/*position: relative;*/
-/*width: 35%;*/
-/*}*/
+.todoInput input[type="text"] {
+    max-width: 500px;
+}
 
-/*.form-block input {*/
-/*width: 50%;*/
-/*}*/
+/* .todoInput input[type="text"] {
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px inset rgba(109, 105, 105, 0.9);
+}
+
+.todoInput input[type="text"]:focus {
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px inset rgba(40, 70, 42, 0.9);
+}
+
+.todoInput input[type="text"]:active,
+.todoInput input[type="text"]:not(.browser-default) {
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px inset rgba(40, 70, 42, 0.9);
+} */
 
 .picture {
-	max-width: 150px;
-	max-height: 150px;
-	overflow: hidden;
+    max-width: 150px;
+    max-height: 150px;
+    overflow: hidden;
 }
 
 .picture img {
-	width: 100%;
+    width: 100%;
 }
 
 .block-img {
-	position: relative;
+    position: relative;
 }
 
 #password,
 #new {
-	width: 100%;
+    width: 100%;
 }
 
 #picture {
-	width: 30%;
-	position: absolute;
-	right: 0;
+    width: 30%;
+    position: absolute;
+    right: 0;
 }
 
 #urlPicture {
-	width: 100%;
+    width: 100%;
 }
 
 #new {
-	width: 100%;
-	height: 25px;
-	border: none;
-	border-bottom: 1px solid gray;
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-bottom: 1px solid gray;
 }
 
 .modal {
-	display: block;
-	top: 30%;
+    display: block;
+    top: 30%;
 }
 
 /*profile form styles start*/
+
 .profile-form {
-	max-width: 400px;
-	margin: 0 auto;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .avatar-selector .wrapper {
-	display: flex;
+    display: flex;
 }
 
 .avatar-selector .wrapper .avatar {
-	width: 50px;
-	height: 50px;
-	margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
 
 .avatar-selector .wrapper .avatar img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .input-wrapper__label {
-	font-size: 24px;
+    font-size: 24px;
 }
 
 /*profile form styles end*/
 
-
 .avatar-block {
-	display: flex;
-	align-items: center;
-	padding-right: 10px;
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
 }
 
 .avatar-block .avatar {
-	width: 50px;
-	min-width: 50px;
-	height: 50px;
-	margin-right: 10px;
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
 
 .avatar-block .avatar img {
-	width: 100%;
-	height: 100%;
-	vertical-align: top;
-	object-fit: cover;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    object-fit: cover;
 }
 
 nav .brand-logo {
-	position: static;
+    position: static;
 }

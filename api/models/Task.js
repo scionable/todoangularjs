@@ -1,7 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-module.exports = mongoose.model('Task', {
-	text : String,
-	day: String,
-	done : Boolean
+module.exports = mongoose.model("Task", {
+    text: String,
+    day: String,
+    done: Boolean,
+    remindTimeTask: { type: Date }
 });
