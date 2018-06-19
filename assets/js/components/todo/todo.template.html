@@ -1,5 +1,4 @@
 <div>
-
 	<ul class="tabs">
 		<li class="tab" ng-repeat="day in  $ctrl.days" ng-class="{active : $ctrl.activeTab === day}" ng-click="$ctrl.activeTab = day">
 			<a href="">{{day}}
@@ -9,11 +8,11 @@
 	</ul>
 
 	<div ng-repeat="task in $ctrl.allTasks | tasksFilter : $ctrl.activeTab" class="task">
-		<label class="task__text">
+		<label class="task__text" ng-click="$ctrl.getTaskPage(task)">
 			<input type="checkbox" class="filled-in" ng-model="task.done" ng-change="$ctrl.changeTaskDone(task._id, task.done)
 			" />
-			<span class="text">{{task.text}}</span>
-			<span class="text">{{$ctrl.transformationTimeTask(task.remindTimeTask)}}</span>
+			<span ng-click="$ctrl.goToPageTask(task)" class="text">{{task.text}}</span>
+			<span class="text">{{task.remindTimeTask| date : 'fullDate'}} {{task.remindTimeTask| date : 'HH:mma' }}</span>
 		</label>
 		<button ng-click="$ctrl.deleteTask(task._id)" class="btn task__btn-delete">Dell</button>
 	</div>
@@ -21,8 +20,9 @@
 	<div class="col s4 todoInput">
 		<input type="text" ng-model="$ctrl.task.text" placeholder="your task">
 		<input class="time" type="datetime-local" ng-model="$ctrl.task.remindTimeTask" style="color: #ee6e73; font-weight: 700;"
-		 placeholder="yyyy-MM-ddTHH:mm:ss" required>
+		 placeholder="yyyy-MM-dd-HH-mm" required>
 
 	</div>
 	<button ng-click="$ctrl.addNewTask($ctrl.task.text, $ctrl.task.remindTimeTask); $ctrl.task.text = ''" class="btn">Add</button>
+
 </div>

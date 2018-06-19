@@ -21,7 +21,7 @@ function createTask(req, res) {
       text: req.body.text,
       day: req.body.day,
       done: false,
-      remindTimeTask: req.body.time
+      remindTimeTask: req.body.remindTimeTask
     },
     (err, todo) => {
       if (err) res.send(err);

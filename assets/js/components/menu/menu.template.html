@@ -1,19 +1,15 @@
 <nav>
 	<div class="nav-wrapper">
-
 		<div class="avatar-block right">
 			<div class="avatar">
-				<img ng-show="$ctrl.user.avatar" ng-src="data:image/png;base64,{{$ctrl.user.avatar}}" alt="avatar">
+				<img ng-show="menuCtrl.user.avatar" ng-src="data:image/png;base64,{{menuCtrl.user.avatar}}" alt="avatar">
 			</div>
-			<a ui-sref="home" class="brand-logo">{{$ctrl.user.name || 'Logo'}}</a>
+			<a ui-sref="home" class="brand-logo">{{menuCtrl.user.name || 'Logo'}}</a>
 		</div>
-
 		<ul id="nav-mobile" class="left hide-on-med-and-down">
-
-			<li ng-repeat="menuLink in $ctrl.menuLinks">
-				<a ui-sref="{{menuLink.sref}}" ng-show=" $ctrl.showLink(menuLink.sref)" ui-sref-active="active">{{menuLink.text}}</a>
+			<li ng-repeat="menuLink in menuCtrl.menuLinks">
+				<a ui-sref="{{menuLink.sref}}" ng-show="menuCtrl.showLink(menuLink.sref)" ui-sref-active="active">{{menuLink.text}}</a>
 			</li>
-
 		</ul>
 	</div>
 </nav>

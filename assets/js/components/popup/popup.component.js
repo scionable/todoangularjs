@@ -1,16 +1,20 @@
 (function() {
-  angular.module('todoApp').controller('popupController', ['popupService', '$scope', '$state', popupController]);
+	angular.module("todoApp").controller("popupController", popupController);
 
-  function popupController(popupService, $scope, $state, close) {
-    let $ctrl = this;
+	popupController.$inject = ["popupService", "$scope", "$state"];
 
-    $scope.close = function() {
-      popupService.closePopup();
-      //$state.go('home');
-    };
+	function popupController(popupService, $scope, $state, close) {
+		let $ctrl = this;
+		$ctrl.task = popupService.updateInfo;
+		$scope.task = popupService.updateInfo;
 
-    $scope.cancel = function() {
-      popupService.hidePopup();
-    };
-  }
+		$scope.close = function() {
+			popupService.closePopup();
+			//$state.go('home');
+		};
+
+		$scope.cancel = function() {
+			popupService.hidePopup();
+		};
+	}
 })();
