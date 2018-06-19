@@ -10,7 +10,7 @@
 			deleteTask: deleteTask,
 			changeTaskDone: changeTaskDone,
 			openRemindPopup: openRemindPopup,
-			getFindTaskById: getFindTaskById,
+			getTaskById: getTaskById,
 			checkActiveTaskAndShowReminder: checkActiveTaskAndShowReminder,
 			handled: []
 		};
@@ -38,17 +38,10 @@
 		function changeTaskDone(data) {
 			return $http.patch("/modifyTask", data);
 		}
-		function getFindTaskById(taskId) {
-			var objTask = null;
-			return service.getAllTasks().then(function(resp) {
-				resp.data.forEach(function(element) {
-					if (element._id == taskId) {
-						objTask = Object.assign({}, element);
-					}
-				});
-				return $q.resolve(objTask).then(function(resp) {
-					return resp;
-				});
+
+		function getTaskById(taskId) {
+			return service.allTasks.filter(function (task) {
+				return task._id === taskId;
 			});
 		}
 

@@ -22,9 +22,7 @@
 				})
 				.state("taskInfo", {
 					url: "/task/:taskId",
-					templateUrl: "js/components/task/task.template.html",
-					controller: taskController,
-					controllerAs: "taskCtrl"
+					component: 'task',
 				})
 				.state("auth", {
 					url: "/auth",

@@ -17,6 +17,7 @@
 		};
 		return popup;
 
+
 		function openPopup(template, objTask) {
 			this.updateInfo = objTask;
 			ModalService.showModal({

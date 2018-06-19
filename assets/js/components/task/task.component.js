@@ -1,14 +1,14 @@
-(function() {
-	angular.module("todoApp").controller("taskController", taskController);
-});
-taskController.$inject = ["$scope", "$stateParams", "taskService"];
-function taskController($scope, $stateParams, taskService) {
-	var $ctrl = this;
-
-	taskService.getFindTaskById($stateParams.taskId).then(function(task) {
-		$ctrl.task = task;
-		debugger;
-		console.log("1", $ctrl.task);
+(function () {
+	angular.module("todoApp").component("task", {
+		templateUrl: "/js/components/task/task.template.html",
+		controller: ('taskController', ["$stateParams", "taskService", taskController])
 	});
-	console.log("2", $ctrl.task);
-}
+
+	function taskController($stateParams, taskService) {
+		var $ctrl = this;
+
+		$ctrl.task = taskService.getTaskById($stateParams.taskId)[0];
+	}
+
+})();
+

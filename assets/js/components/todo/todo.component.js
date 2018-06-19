@@ -26,15 +26,9 @@
 		$ctrl.changeTaskDone = changeTaskDone;
 		$ctrl.goToPageTask = goToPageTask;
 
-		var now = new Date();
+		// var now = new Date();
 
-		$ctrl.task.remindTimeTask = new Date(
-			now.getFullYear(),
-			now.getDate(),
-			now.getMonth(),
-			now.getHours(),
-			now.getMinutes()
-		);
+		$ctrl.task.remindTimeTask = new Date().getTime();
 
 		taskService.getAllTasks().then(function(resp) {
 			$ctrl.allTasks = resp.data;
