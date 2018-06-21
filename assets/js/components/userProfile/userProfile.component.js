@@ -30,13 +30,18 @@
       id: $ctrl.user._id
     };
 
-    $ctrl.onAvatarChange = onAvatarChange;
-    $ctrl.submit = submit;
+		function onAvatarChange(event) {
+			$ctrl.displayAvatar = $ctrl.userAdditionalInfo.displayAvatar = arguments[5].base64;
+			$rootScope.$broadcast('userAvatarUpdated', $ctrl.userAdditionalInfo.displayAvatar);
+		}
 
-    function onAvatarChange(event) {
-      $ctrl.displayAvatar = $ctrl.userAdditionalInfo.displayAvatar =
-        arguments[5].base64;
-    }
+		function submit(userAdditionalInfo) {
+			delete userAdditionalInfo.avatar;
+			userService.updateUserInfo(userAdditionalInfo)
+				.then(function (resp) {
+					console.log(resp);
+				})
+		}
 
     function submit(userAdditionalInfo) {
       delete userAdditionalInfo.avatar;

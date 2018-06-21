@@ -7,7 +7,7 @@
 				<label for="" class="input-wrapper__label">Choose Avatar</label>
 				<div class="wrapper">
 					<div class="avatar">
-						<img ng-src="data:image/png;base64,{{$ctrl.displayAvatar}}" alt="avatar" />
+						<img ng-show="$ctrl.displayAvatar" ng-src="data:image/png;base64,{{$ctrl.displayAvatar}}" alt="avatar" />
 					</div>
 					<div class="file-field input-field">
 						<div class="btn">

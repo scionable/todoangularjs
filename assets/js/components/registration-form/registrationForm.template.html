@@ -25,8 +25,12 @@
 			<span ng-show="$ctrl.user.password !== $ctrl.user.confirmPassword" class="error"> passwords do not match</span>
 		</div>
 
-		<button type="submit" ng-click="$ctrl.registerUser($event, $ctrl.user)" ng-disabled="$ctrl.user.password !== $ctrl.user.confirmPassword || registrationForm.$invalid"
-		 class="btn register-btn">Register
+		<button
+			type="submit"
+			ng-click="$ctrl.registerUser($event, $ctrl.user)"
+			ng-disabled="$ctrl.user.password !== $ctrl.user.confirmPassword || registrationForm.$invalid"
+			class="btn register-btn"
+		>Register
 		</button>
 	</form>
 	<div class="registration-form__exist">{{$ctrl.errorMessage}}</div>
