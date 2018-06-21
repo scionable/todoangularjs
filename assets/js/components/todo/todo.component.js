@@ -1,10 +1,8 @@
 (function() {
 	angular.module("todoApp").component("todo", {
 		templateUrl: "/js/components/todo/todo.template.html",
-		controller: ("tasksController", tasksController)
+		controller: ("tasksController", ["taskService", "$state", "$interval", tasksController])
 	});
-
-	tasksController.$inject = ["taskService", "$state", "$interval"];
 
 	function tasksController(taskService, $state, $interval) {
 		let $ctrl = this;

@@ -1,74 +1,37 @@
-(function() {
+(function () {
 	angular.module("todoApp").component("menu", {
 		templateUrl: "js/components/menu/menu.template.html",
-		controller: MenuComponent,
-		controllerAs: "menuCtrl"
+		controller: ["$scope", "userService", MenuComponent]
 	});
-
-	var menuLinks = [
-		{ sref: "home", text: "Home", name: "home" },
-		{
-			sref: "userProfile",
-			text: "Profile",
-			name: "userProfile"
-		},
-		{
-			sref: "task-list",
-			text: "Tasks",
-			name: "tasks"
-		},
-		{ sref: "auth", text: "Login / Registration", name: "auth" }
-	];
-
-	MenuComponent.$inject = ["$scope", "userService"];
 
 	function MenuComponent($scope, userService) {
 		var $ctrl = this;
 		$ctrl.user = userService.user;
-		$ctrl.isLogin = !!$ctrl.user;
-		$ctrl.showLink = showLink;
-		$ctrl.menuLinks = menuLinks;
-		// $ctrl.isActive = isActive;
+		$ctrl.menuLinks = [
+			{sref: "home", text: "Home", isShow: true},
+			{sref: "userProfile", text: "Profile", isShow: !!$ctrl.user, shouldUpdate: true},
+			{sref: "task-list", text: "Task-list", isShow: !!$ctrl.user, shouldUpdate: true},
+			{sref: "auth", text: "Login / Registration", isShow: true}
+		];
 
-		$scope.$watch(
-			"menuCtrl.user",
-			function(newValue, oldValue) {
-				$ctrl.isLogin = !!newValue;
-			},
-			true
-		);
-
-		function showLink(linkSref) {
-			switch (linkSref) {
-				case "userProfile":
-				case "task-list":
-					return $ctrl.isLogin;
-
-				default:
-					return true;
-			}
-		}
-		// will do this methods for leave active task
-		function isActive(linkSref) {
-			switch (linkSref) {
-				case "userProfile":
-				case "task-list":
-					return $ctrl.isLogin;
-
-				default:
-					return true;
-			}
+		function updateMenu(){
+			$ctrl.menuLinks.forEach(function (menuLink) {
+				if(!menuLink.shouldUpdate) return;
+				return menuLink.isShow = !!$ctrl.user;
+			})
 		}
 
-		$scope.$on("user-logout", function(event, args) {
+		$scope.$on("user-logout", function (event, args) {
 			$ctrl.user = args.user;
+			updateMenu();
 		});
 
-		$scope.$on("user-login", function(event, args) {
+		$scope.$on("user-login", function (event, args) {
 			$ctrl.user = args.user;
+			updateMenu();
 		});
 
-		$scope.$on("userAvatarUpdated", function(event, args) {
+		$scope.$on("userAvatarUpdated", function (event, args) {
 			$ctrl.user.avatar = args;
 		});
 	}
