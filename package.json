@@ -1,26 +1,25 @@
 {
-  "name": "node-todo",
-  "version": "1.0.0",
-  "description": "Simple todo application.",
-  "main": "server.js",
-  "author": "",
-  "scripts": {
-    "start": "nodemon server.js"
-  },
-  "dependencies": {
-    "angular-modal-service": "^0.13.0",
-    "angular-toastr": "^2.1.1",
-    "angularjs-file-model": "^1.0.4",
-    "body-parser": "^1.18.2",
-    "express": "~4.7.2",
-    "method-override": "^2.3.10",
-    "mongodb": "^3.0.6",
-    "mongoose": "^5.0.14",
-    "mongoose-findorcreate": "^3.0.0",
-    "morgan": "^1.9.0",
-    "nodemon": "^1.17.5"
-  },
-  "devDependencies": {
-    "mongoose-find-one-or-create": "^0.2.0"
-  }
+	"name": "node-todo",
+	"version": "1.0.0",
+	"description": "Simple todo application.",
+	"main": "server.js",
+	"author": "",
+	"scripts": {
+		"start": "nodemon server.js"
+	},
+	"dependencies": {
+		"body-parser": "^1.18.2",
+		"express": "~4.7.2",
+		"method-override": "^2.3.10",
+		"mongodb": "^3.0.6",
+		"mongoose": "^5.0.14",
+		"mongoose-findorcreate": "^3.0.0",
+		"morgan": "^1.9.0",
+		"nodemon": "^1.17.5"
+	},
+	"devDependencies": {
+		"jasmine-core": "^3.1.0",
+		"karma": "^2.0.4",
+		"mongoose-find-one-or-create": "^0.2.0"
+	}
 }
