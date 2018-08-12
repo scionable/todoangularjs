@@ -12,7 +12,10 @@
     "angular-ui-router": "^1.0.15",
     "angular-modal-service": "^0.13.0",
     "angular-base64-upload": "^0.1.23",
-    "angular-toastr": "^2.1.1"
+    "angular-toastr": "^2.1.1",
+    "stacktrace-js": "^2.0.0",
+    "jquery": "^3.3.1",
+    "raven-js": "^3.26.4"
   },
   "ignore": [
     "**/.*",

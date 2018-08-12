@@ -4,12 +4,7 @@
 		controller: ("userProfileController", ["$rootScope", "userService", "toastr", "helperService", userProfileController])
 	});
 
-	function userProfileController(
-		$rootScope,
-		userService,
-		toastr,
-		helperService
-	) {
+	function userProfileController($rootScope, userService, toastr, helperService) {
 		let $ctrl = this;
 		$ctrl.user = userService.user;
 

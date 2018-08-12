@@ -1,24 +1,16 @@
 (function() {
-	angular.module("todoApp").service("taskService", taskService);
-
-	taskService.$inject = ["$http", "popupService", "$q"];
+	angular.module("todoApp").service("taskService", ["$http", "popupService", "$q", taskService]);
 
 	function taskService($http, popupService, $q) {
-		var service = {
+
+		let service = {
 			addTask: addTask,
 			getAllTasks: getAllTasks,
 			deleteTask: deleteTask,
 			changeTaskDone: changeTaskDone,
-			openRemindPopup: openRemindPopup,
-			getTaskById: getTaskById,
-			checkActiveTaskAndShowReminder: checkActiveTaskAndShowReminder,
-			handled: []
+			getTaskById: getTaskById
 		};
 		return service;
-
-		function openRemindPopup() {
-			popupService.openPopup("js/components/popup/popup.template.html");
-		}
 
 		function getAllTasks() {
 			return $http.get("getAllTasks").then(function(resp) {
@@ -45,26 +37,5 @@
 			});
 		}
 
-		function checkActiveTaskAndShowReminder() {
-			return service.allTasks.forEach(function(element) {
-				var taskTime = new Date(element.remindTimeTask);
-				var now = new Date();
-				var checkTime =
-					taskTime.getFullYear() == now.getFullYear() &&
-					taskTime.getDate() == now.getDate() &&
-					taskTime.getMonth() == now.getMonth() &&
-					taskTime.getHours() == now.getHours() &&
-					taskTime.getMinutes() == now.getMinutes();
-
-				if (checkTime && service.handled.indexOf(element) < 0) {
-					service.handled.push(element);
-					popupService.openPopup(
-						"js/components/popup/popup.template.html",
-						element
-					);
-					return false;
-				}
-			});
-		}
 	}
 })();

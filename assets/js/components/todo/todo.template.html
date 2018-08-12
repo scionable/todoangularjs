@@ -19,10 +19,8 @@
 
 	<div class="col s4 todoInput">
 		<input type="text" ng-model="$ctrl.task.text" placeholder="your task">
-		<input class="time" type="datetime-local" ng-model="$ctrl.task.remindTimeTask" style="color: #ee6e73; font-weight: 700;"
-		 placeholder="yyyy-MM-dd-HH-mm" required>
-
 	</div>
+
 	<button ng-click="$ctrl.addNewTask($ctrl.task.text, $ctrl.task.remindTimeTask); $ctrl.task.text = ''" class="btn">Add</button>
 
 </div>
